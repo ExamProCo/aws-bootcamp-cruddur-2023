@@ -1,0 +1,40 @@
+.suggested_users {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.suggested_users_title {
+  font-size: 16px;
+  color: #fff;
+  padding: 16px;
+  border-bottom: solid 1px rgb(31,36,49);
+}
+
+.suggested_users .user {
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 16px;
+  display: flex;
+}
+
+.suggested_users .user span {
+  display: block;
+}
+
+.suggested_users .user span.handle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5)
+}
+
+.suggested_users .avatar {
+  background: rgb(149,0,255);
+  height: 36px;
+  width: 36px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  margin-right: 12px;
+}

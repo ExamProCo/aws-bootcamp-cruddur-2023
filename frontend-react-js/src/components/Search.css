@@ -1,0 +1,13 @@
+.search_field input[type='text'] {
+  border: solid 1px rgba(149,0,255,0.1);
+  background: rgba(149,0,255,0.1);
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: #fff;
+}
+.search_field input[type='text']:focus {
+  border: solid 1px rgb(149,0,255,1);
+}

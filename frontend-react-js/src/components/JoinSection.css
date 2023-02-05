@@ -1,0 +1,50 @@
+.join {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.join .join-title {
+  font-size: 16px;
+  color: #fff;
+  padding: 16px;
+  border-bottom: solid 1px rgb(31,36,49);
+}
+
+.join p {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.join-content {
+  padding: 24px;
+  padding-top: 12px;
+}
+
+.join-content a.action {
+  display: block;
+  background: rgba(149,0,255,1);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 999px;
+  width: 100%;
+  font-size: 20px;
+  padding: 16px 0px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.join-content a.subaction {
+  color: rgba(149,0,255,1);
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  padding: 12px 0px;
+  margin-top: 12px;
+  font-size: 16px;
+}

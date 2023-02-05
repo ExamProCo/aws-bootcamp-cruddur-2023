@@ -1,0 +1,23 @@
+.activity_feed {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.activity_feed_collection {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity_feed_heading {
+  padding: 16px;
+  padding-bottom: 48px;
+  border-bottom: solid 1px rgb(58,63,78);
+}
+
+.activity_feed_heading .title{
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+}

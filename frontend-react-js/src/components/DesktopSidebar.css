@@ -1,0 +1,21 @@
+section {
+  flex-shrink: 1;
+  width: 380px;
+  padding: 16px;
+}
+
+section footer {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+}
+
+section footer a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.2);
+  font-size: 14px;
+}
+
+section footer a:hover {
+  color: rgba(255,255,255,1);
+}

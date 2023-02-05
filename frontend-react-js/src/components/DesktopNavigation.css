@@ -1,0 +1,57 @@
+nav {
+  flex-shrink: 1;
+  width: 280px;
+  padding-top: 16px;
+  padding-right: 24px;
+}
+nav .logo {
+  width: 48px;
+  height: 48px;
+  fill: rgb(149,0,255);
+}
+
+nav a.primary {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  color: rgb(255,255,255,0.5);
+  font-size: 20px;
+  text-decoration: none;
+  padding: 12px 0;
+  margin: 8px 0;
+}
+nav a.primary:hover {
+  color: rgb(255,255,255,1);
+}
+nav a.primary .icon {
+  fill: rgb(255,255,255,0.5);
+  width: 24px;
+  height: 24px;
+}
+
+nav a.primary:hover .icon {
+  fill: rgb(255,255,255,1);
+}
+
+nav a.primary.active {
+  color: rgb(149,0,255) !important;
+  font-weight: 600;
+}
+nav a.primary.active svg {
+  fill: rgb(149,0,255) !important;
+}
+
+nav button.post {
+  display: block;
+  background: rgba(149,0,255,1);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  border-radius: 999px;
+  width: 100%;
+  font-size: 20px;
+  padding: 16px 0px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 24px;
+}
