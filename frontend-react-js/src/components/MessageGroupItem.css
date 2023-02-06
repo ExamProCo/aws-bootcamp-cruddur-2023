@@ -10,6 +10,10 @@
 background: rgba(255,255,255,0.08)
 }
 
+.message_group_item.active {
+background: rgba(255,255,255,0.08)
+}
+
 .message_group_item:last-child {
   border-bottom: none;
 }
