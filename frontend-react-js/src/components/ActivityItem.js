@@ -2,10 +2,11 @@ import './ActivityItem.css';
 import { Link } from "react-router-dom";
 import { DateTime } from 'luxon';
 import {ReactComponent as BombIcon} from './svg/bomb.svg';
-import {ReactComponent as ReplyIcon} from './svg/reply.svg';
-import {ReactComponent as HeartIcon} from './svg/heart.svg';
-import {ReactComponent as RepostIcon} from './svg/repost.svg';
-import {ReactComponent as ShareIcon} from './svg/share.svg';
+
+import ActivityActionReply  from '../components/ActivityActionReply';
+import ActivityActionRepost  from '../components/ActivityActionRepost';
+import ActivityActionLike  from '../components/ActivityActionLike';
+import ActivityActionShare  from '../components/ActivityActionShare';
 
 export default function ActivityItem(props) {
 
@@ -63,18 +64,10 @@ export default function ActivityItem(props) {
           </div>{/* activity_meta */}
           <div className="message">{props.activity.message}</div>
           <div className="activity_actions">
-            <div className="action activity_action_reply">
-              <ReplyIcon className='icon' />
-            </div>
-            <div className="action activity_action_repost">
-              <RepostIcon className='icon' />
-            </div>
-            <div className="action activity_action_heart">
-              <HeartIcon className='icon' />
-            </div>
-            <div className="action activity_action_share">
-              <ShareIcon className='icon' />
-            </div>
+            <ActivityActionReply activity_uuid={props.activity.uuid} count={props.activity.replies_count}/>
+            <ActivityActionRepost activity_uuid={props.activity.uuid} count={props.activity.reposts_count}/>
+            <ActivityActionLike activity_uuid={props.activity.uuid} count={props.activity.likes_count}/>
+            <ActivityActionShare activity_uuid={props.activity.uuid} />
           </div>
         </div>{/* activity_content */}
     </div>

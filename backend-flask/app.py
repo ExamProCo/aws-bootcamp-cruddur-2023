@@ -6,10 +6,12 @@ import os
 from services.home_activities import *
 from services.user_activities import *
 from services.create_activity import *
+from services.create_reply import *
 from services.search_activities import *
 from services.message_groups import *
 from services.messages import *
 from services.create_message import *
+from services.show_activity import *
 
 app = Flask(__name__)
 frontend = os.getenv('FRONTEND_URL')
@@ -88,6 +90,24 @@ def data_activities():
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)
+  if model['errors'] is not None:
+    return model['errors'], 422
+  else:
+    return model['data'], 200
+  return
+
+@app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
+def data_show_activity(activity_uuid):
+  data = ShowActivity.run(activity_uuid=activity_uuid)
+  return data, 200
+
+@app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
+@cross_origin()
+def data_activities_reply(activity_uuid):
+  user_handle  = 'andrewbrown'
+  message = request.json['message']
+  ttl = request.json['ttl']
+  model = CreateReply.run(message, user_handle, ttl)
   if model['errors'] is not None:
     return model['errors'], 422
   else:

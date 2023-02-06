@@ -166,12 +166,49 @@ components:
         message:
           type: string
           example: "Who likes pineapple on their pizza?"
+        replies_count:
+          type: integer
+          example: 5
+        reposts_count:
+          type: integer
+          example: 2
+        likes_count:
+          type: integer
+          example: 103
         created_at:
           type: string
           example: "2023-02-06T18:11:03+00:00"
         expires_at:
           type: string
           example: "2023-02-06T18:11:03+00:00"
+    Reply:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        reply_to_activity_uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        handle:
+          type: string
+          example: "andrewbrown"
+        message:
+          type: string
+          example: "Who likes pineapple on their pizza?"
+        replies_count:
+          type: integer
+          example: 5
+        reposts_count:
+          type: integer
+          example: 2
+        likes_count:
+          type: integer
+          example: 103
+        created_at:
+          type: string
+          example: "2023-02-06T18:11:03+00:00"
+
     Message:
       type: object
       properties:

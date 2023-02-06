@@ -82,8 +82,15 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 999px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px
 }
 
+.activity_item .activity_actions .action .counter{
+  color: rgba(255,255,255,0.8);
+  font-weight: 800;
+}
 
 .activity_item .activity_actions .icon{
   height: 18px;
@@ -92,7 +99,7 @@
 }
 
 .activity_item .activity_actions .action:hover {
-  background: rgba(149,0,255,0.08);
+  background: rgba(149,0,255,0.2);
 }
 
 .activity_item .activity_actions .action:hover .icon {
