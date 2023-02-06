@@ -17,7 +17,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activities'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
   /api/activities/search:
     get:
       description: 'Return a feed of activity based on a search term'
@@ -37,7 +39,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activities'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
   /api/activities:
     post:
       description: Create a new activitiy eg. Creating a Crud
@@ -62,7 +66,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activity'
+                type: object
+                items:
+                  $ref: '#/components/schemas/Activity'
   /api/activities/@{handle}:
     get:
       description: 'Return a feed of activity for a specific user'
@@ -81,7 +87,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activities'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
   /api/message_groups:
     get:
       description: 'Return a list of two way private conversations for the user'
@@ -93,7 +101,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MessageGroups'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageGroup'
   /api/messages/@{handle}:
     get:
       description: 'Returns private communication between two users'
@@ -112,7 +122,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Messages'
+                type: object
+                items:
+                  $ref: '#/components/schemas/Message'
   /api/messages:
     post:
       description: 'Create a direct message between two users'
@@ -133,15 +145,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Message'
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
 
 components:
   schemas:
-    Activities:
-      type: array
-      properties:
-        items:
-          $ref: '#/components/schemas/Activity'
     Activity:
       type: object
       properties:
@@ -181,11 +190,6 @@ components:
         created_at:
           type: string
           example: "2021-07-27T16:02:08.070557"
-    Messages:
-      type: array
-      properties:
-        items:
-          $ref: '#/components/schemas/Message'
     MessageGroup:
       type: object
       properties:
@@ -198,11 +202,3 @@ components:
         handle:
           type: string
           example: "worf"
-    MessageGroups:
-      type: array
-      properties:
-        items:
-          type: object
-          properties:
-            items:
-              $ref: '#/components/schemas/MessageGroup'
