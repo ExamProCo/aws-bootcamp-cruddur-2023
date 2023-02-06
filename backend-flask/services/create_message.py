@@ -1,3 +1,5 @@
+import uuid
+from datetime import datetime
 class CreateMessage:
   def run(message, user_sender_handle, user_reciever_handle):
     model = {
@@ -18,13 +20,15 @@ class CreateMessage:
     if model['errors']:
       # return what we provided
       model['data'] = {
-        'sender_handle':  user_sender_handle,
-        'reciever_handle':  user_reciever_handle,
+        'display_name': 'Andrew Brown',
+        'handle':  user_sender_handle,
         'message': message
-      }   
+      }
     else:
       model['data'] = {
-        'sender_handle':  user_sender_handle,
-        'reciever_handle':  user_reciever_handle,
-        'message': message
+        'uuid': uuid.uuid4(),
+        'display_name': 'Andrew Brown',
+        'handle':  user_sender_handle,
+        'message': message,
+        'created_at': now.isoformat('#')
       }

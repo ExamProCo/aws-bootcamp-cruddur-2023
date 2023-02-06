@@ -1,3 +1,4 @@
+ 
 from datetime import datetime
 class CreateActivity:
   def run(message, user_handle):
@@ -20,6 +21,7 @@ class CreateActivity:
       }   
     else:
       model['data'] = {
+        'uuid': uuid.uuid4(),
         'handle':  user_handle,
         'message': message,
         'created_at': datetime.now().isoformat('#')
