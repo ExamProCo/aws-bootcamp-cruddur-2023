@@ -6,6 +6,7 @@ import {ReactComponent as BombIcon} from './svg/bomb.svg';
 export default function ActivityForm(props) {
   const [count, setCount] = React.useState(0);
   const [message, setMessage] = React.useState('');
+  const [ttl, setTtl] = React.useState('7-days');
 
   const classes = []
   classes.push('count')
@@ -61,14 +62,17 @@ export default function ActivityForm(props) {
           <button type='submit'>Crud</button>
           <div class='expires_at_field'>
             <BombIcon className='icon' />
-            <select>
-              <option>30 days</option>
-              <option>7 days</option>
-              <option>3 days</option>
-              <option>1 day</option>
-              <option>12 hours</option>
-              <option>3 hours</option>
-              <option>1 hour </option>
+            <select
+              value={ttl}
+              onChange={ttl_onchange} 
+            >
+              <option value='30-days'>30 days</option>
+              <option value='7-days'>7 days</option>
+              <option value='3-days'>3 days</option>
+              <option value='1-day'>1 day</option>
+              <option value='12-hours'>12 hours</option>
+              <option value='3-hours'>3 hours</option>
+              <option value='1-hour'>1 hour </option>
             </select>
           </div>
         </div>

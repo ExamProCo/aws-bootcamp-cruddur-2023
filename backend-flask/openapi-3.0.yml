@@ -52,7 +52,7 @@ paths:
                 $ref: '#/components/schemas/Messages'
   /api/messages:
     post:
-      description: ''
+      description: 'Create a direct message between two users'
       requestBody:
         required: true
         content:
@@ -64,7 +64,7 @@ paths:
                   type: string
       responses:
         '200':
-          description: A single message
+          description: Return a single message
           content:
             application/json:
               schema:
@@ -72,54 +72,68 @@ paths:
 
 components:
   schemas:
+    Activity:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        display_name:
+          type: string
+          example: "Andrew Brown"
+        handle:
+          type: string
+          example: "andrewbrown"
+        message:
+          type: string
+          example: "Who likes pineapple on their pizza?"
+        created_at:
+          type: string
+          example: "2021-07-27T16:02:08.070557"
+        expires_at:
+          type: string
+          example: "2021-07-27T16:02:08.070557"
+
     Message:
       type: object
       properties:
         uuid:
           type: string
           example: 0056a369-4618-43a4-ad88-e7c371bf5582
-        sender_handle:
+        display_name:
           type: string
-          example: 'worf'
-        reciever_handle:
+          example: "Andrew Brown"
+        handle:
           type: string
-          example: 'jadzia'
+          example: "andrewbrown"
         message:
           type: string
-          example: "Can you order me a prune juice from Quarks?"
+          example: "Who likes pineapple on their pizza?"
+        created_at:
+          type: string
+          example: "2021-07-27T16:02:08.070557"
     Messages:
       type: array
       properties:
         items:
-          type: object
-          properties:
-            uuid:
-              type: string
-              example: 0056a369-4618-43a4-ad88-e7c371bf5582
-            display_name:
-              type: string
-              example: "Andrew Brown"
-            handle:
-              type: string
-              example: "andrewbrown"
-            message:
-              type: string
-              example: "Who likes pineapple on their pizza?"
-            created_at:
-              type: string
-              example: "2021-07-27T16:02:08.070557"
+          $ref: '#/components/schemas/Message'
+    MessageGroup:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        display_name:
+          type: string
+          example: "Worf"
+        handle:
+          type: string
+          example: "worf"
     MessageGroups:
       type: array
       properties:
         items:
           type: object
           properties:
-            uuid:
-              type: string
-              example: 0056a369-4618-43a4-ad88-e7c371bf5582
-            display_name:
-              type: string
-              example: "Worf"
-            handle:
-              type: string
-              example: "worf"
+            items:
+              $ref: '#/components/schemas/MessageGroup'
