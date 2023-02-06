@@ -16,7 +16,7 @@ class Messages:
         'created_at': now.isoformat('#')
       },
       {
-        'uuid': '66e12864-8c26-4c3a-9658-95a10f8fea67'
+        'uuid': '66e12864-8c26-4c3a-9658-95a10f8fea67',
         'display_name': 'Andrew Brown',
         'handle':  'andrewbrown',
         'message': 'This platform is great!',
