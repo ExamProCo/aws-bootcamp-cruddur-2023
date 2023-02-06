@@ -28,13 +28,26 @@ paths:
                 $ref: '#/components/schemas/Activities'
   /api/activities:
     post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                handle:
+                  type: string
+                message:
+                  type: string
+                ttl:
+                  type: string
       responses:
         '200':
-          description: Returns an array of activities"
+          description: Returns a recently created activity"
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Activities'
+                $ref: '#/components/schemas/Activity'
   /api/activities/@{handle}:
     get:
       description: 'Return a feed of activity for a specific user'

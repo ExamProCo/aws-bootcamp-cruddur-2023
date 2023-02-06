@@ -86,7 +86,8 @@ def data_search():
 def data_activities():
   user_handle  = 'andrewbrown'
   message = request.json['message']
-  model = CreateActivity.run(message, user_handle)
+  ttl = request.json['ttl']
+  model = CreateActivity.run(message, user_handle, ttl)
   if model['errors'] is not None:
     return model['errors'], 422
   else:
