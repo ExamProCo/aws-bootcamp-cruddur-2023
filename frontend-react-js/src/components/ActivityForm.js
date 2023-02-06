@@ -26,12 +26,19 @@ export default function ActivityForm(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: message
+          message: message,
+          ttl: ttl
         }),
       });
       let activity = await res.json();
       if (res.status === 200) {
+        // add activity to the feed
         props.setActivities(current => [activity,...current]);
+        // reset and close the form
+        setCount(0)
+        setMessage('')
+        setTtl('7-days')
+        props.setPopped(false)
       } else {
         console.log(res)
       }

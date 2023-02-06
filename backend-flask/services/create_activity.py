@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime, timedelta
 class CreateActivity:
   def run(message, user_handle, ttl):
@@ -45,6 +46,6 @@ class CreateActivity:
         'handle':  user_handle,
         'message': message,
         'created_at': now.isoformat('#'),
-        'expires_at': (now() + ttl_offset).isoformat('#')
+        'expires_at': (now + ttl_offset).isoformat('#')
       }
     return model
