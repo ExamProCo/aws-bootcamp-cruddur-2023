@@ -13,6 +13,7 @@ export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
   const [user, setUser] = React.useState(null);
+  const dataFetchedRef = React.useRef(false);
 
   const loadData = async () => {
     try {
@@ -43,6 +44,10 @@ export default function HomeFeedPage() {
   };
 
   React.useEffect(()=>{
+    //prevents double call
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
     loadData();
     checkAuth();
   }, [])

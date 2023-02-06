@@ -11,33 +11,35 @@ export default function ActivityItem(props) {
 
   const format_time_created_at = (value) => {
     // format: 2050-11-20 18:32:47 +0000
-    const created = DateTime.fromISO(value)
+    const past = DateTime.fromISO(value)
     const now     = DateTime.now()
-    const diff_mins = now.diff(created, 'minutes').toObject().minutes;
-    const diff_hours = now.diff(created, 'hours').toObject().hours;
+    const diff_mins = now.diff(past, 'minutes').toObject().minutes;
+    const diff_hours = now.diff(past, 'hours').toObject().hours;
 
     if (diff_hours > 24.0){
-      return created.toFormat("LLL L");
+      return past.toFormat("LLL L");
     } else if (diff_hours < 24.0 && diff_hours > 1.0) {
-      return `${Math.floor(diff_hours)}h`;
+      return `${Math.floor(diff_hours)}h ago`;
     } else if (diff_hours < 1.0) {
-      return `${Math.round(diff_mins)}m`;
+      return `${Math.round(diff_mins)}m ago`;
     }
   };
 
   const format_time_expires_at = (value) => {
     // format: 2050-11-20 18:32:47 +0000
-    const created = DateTime.fromISO(value)
+    const future = DateTime.fromISO(value)
     const now     = DateTime.now()
-    const diff_mins = now.diff(created, 'minutes').toObject().minutes;
-    const diff_hours = now.diff(created, 'hours').toObject().hours;
+    const diff_mins = future.diff(now, 'minutes').toObject().minutes;
+    const diff_hours = future.diff(now, 'hours').toObject().hours;
+
+    console.log(value, diff_hours,diff_mins)
 
     if (diff_hours > 24.0){
-      return created.toFormat("LLL L");
+      return future.toFormat("LLL L");
     } else if (diff_hours < 24.0 && diff_hours > 1.0) {
-      return `${Math.floor(diff_hours)*-1}h`;
+      return `${Math.floor(diff_hours)}h`;
     } else if (diff_hours < 1.0) {
-      return `${Math.round(diff_mins)*-1}m`;
+      return `${Math.round(diff_mins)}m`;
     }
   };
 

@@ -12,7 +12,7 @@ export default function MessageGroupPage() {
   const [messages, setMessages] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
   const [user, setUser] = React.useState(null);
-
+  const dataFetchedRef = React.useRef(false);
   const params = useParams();
 
   const loadMessageGroupsData = async () => {
@@ -55,6 +55,10 @@ export default function MessageGroupPage() {
   };
 
   React.useEffect(()=>{
+    //prevents double call
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
     loadMessageGroupsData();
     loadMessageGroupData();
     checkAuth();

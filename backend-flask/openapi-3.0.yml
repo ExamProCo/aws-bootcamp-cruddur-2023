@@ -168,10 +168,10 @@ components:
           example: "Who likes pineapple on their pizza?"
         created_at:
           type: string
-          example: "2021-07-27T16:02:08.070557"
+          example: "2023-02-06T18:11:03+00:00"
         expires_at:
           type: string
-          example: "2021-07-27T16:02:08.070557"
+          example: "2023-02-06T18:11:03+00:00"
     Message:
       type: object
       properties:
@@ -189,7 +189,7 @@ components:
           example: "Who likes pineapple on their pizza?"
         created_at:
           type: string
-          example: "2021-07-27T16:02:08.070557"
+          example: "2023-02-06T18:11:03+00:00"
     MessageGroup:
       type: object
       properties:

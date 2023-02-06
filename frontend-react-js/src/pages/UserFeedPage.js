@@ -11,6 +11,7 @@ export default function UserFeedPage() {
   const [activities, setActivities] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
   const [user, setUser] = React.useState(null);
+  const dataFetchedRef = React.useRef(false);
 
   const params = useParams();
   const title = `@${params.handle}`;
@@ -37,6 +38,10 @@ export default function UserFeedPage() {
   };
 
   React.useEffect(()=>{
+    //prevents double call
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
     loadData();
     checkAuth();
   }, [])
