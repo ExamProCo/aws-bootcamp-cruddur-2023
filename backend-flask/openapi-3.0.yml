@@ -9,6 +9,8 @@ paths:
   /api/activities/home:
     get:
       description: 'Return a feed of activity based on all users'
+      tags:
+        - activities
       responses:
         '200':
           description: Returns an array of activities"
@@ -19,6 +21,8 @@ paths:
   /api/activities/search:
     get:
       description: 'Return a feed of activity based on a search term'
+      tags:
+        - activities
       parameters:
         - name: term
           in: query
@@ -36,6 +40,9 @@ paths:
                 $ref: '#/components/schemas/Activities'
   /api/activities:
     post:
+      description: Create a new activitiy eg. Creating a Crud
+      tags:
+        - activities
       requestBody:
         required: true
         content:
@@ -59,6 +66,8 @@ paths:
   /api/activities/@{handle}:
     get:
       description: 'Return a feed of activity for a specific user'
+      tags:
+        - activities
       parameters:
         - name: handle
           in: path
@@ -76,6 +85,8 @@ paths:
   /api/message_groups:
     get:
       description: 'Return a list of two way private conversations for the user'
+      tags:
+        - messages
       responses:
         '200':
           description: Returns an array of messages groups for a specific user
@@ -86,6 +97,8 @@ paths:
   /api/messages/@{handle}:
     get:
       description: 'Returns private communication between two users'
+      tags:
+        - messages
       parameters:
         - name: handle
           in: path
@@ -103,6 +116,8 @@ paths:
   /api/messages:
     post:
       description: 'Create a direct message between two users'
+      tags:
+        - messages
       requestBody:
         required: true
         content:
