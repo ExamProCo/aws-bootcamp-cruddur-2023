@@ -1,10 +1,12 @@
 import './MessageForm.css';
 import React from "react";
 import process from 'process';
+import { useParams } from 'react-router-dom';
 
 export default function ActivityForm(props) {
   const [count, setCount] = React.useState(0);
   const [message, setMessage] = React.useState('');
+  const params = useParams();
 
   const classes = []
   classes.push('count')
@@ -24,12 +26,13 @@ export default function ActivityForm(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: message
+          message: message,
+          user_receiver_handle: params.handle
         }),
       });
-      let message = await res.json();
+      let data = await res.json();
       if (res.status === 200) {
-        props.setMessages(current => [message,...current]);
+        props.setMessages(current => [...current,data]);
       } else {
         console.log(res)
       }

@@ -4,6 +4,9 @@ import React from "react";
 import DesktopNavigation  from '../components/DesktopNavigation';
 import MessageGroupFeed from '../components/MessageGroupFeed';
 
+// [TODO] Authenication
+import Cookies from 'js-cookie'
+
 export default function MessageGroupsPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
@@ -29,6 +32,13 @@ export default function MessageGroupsPage() {
 
   const checkAuth = async () => {
     console.log('checkAuth')
+    // [TODO] Authenication
+    if (Cookies.get('user.logged_in')) {
+      setUser({
+        display_name: Cookies.get('user.name'),
+        handle: Cookies.get('user.username')
+      })
+    }
   };
 
   React.useEffect(()=>{

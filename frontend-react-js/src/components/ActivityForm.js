@@ -30,10 +30,10 @@ export default function ActivityForm(props) {
           ttl: ttl
         }),
       });
-      let activity = await res.json();
+      let data = await res.json();
       if (res.status === 200) {
         // add activity to the feed
-        props.setActivities(current => [activity,...current]);
+        props.setActivities(current => [data,...current]);
         // reset and close the form
         setCount(0)
         setMessage('')

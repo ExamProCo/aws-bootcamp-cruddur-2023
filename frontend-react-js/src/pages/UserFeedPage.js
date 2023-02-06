@@ -7,6 +7,9 @@ import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 
+// [TODO] Authenication
+import Cookies from 'js-cookie'
+
 export default function UserFeedPage() {
   const [activities, setActivities] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
@@ -35,6 +38,13 @@ export default function UserFeedPage() {
 
   const checkAuth = async () => {
     console.log('checkAuth')
+    // [TODO] Authenication
+    if (Cookies.get('user.logged_in')) {
+      setUser({
+        display_name: Cookies.get('user.name'),
+        handle: Cookies.get('user.username')
+      })
+    }
   };
 
   React.useEffect(()=>{

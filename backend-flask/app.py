@@ -35,7 +35,7 @@ def data_message_groups():
 @app.route("/api/messages/@<string:handle>", methods=['GET'])
 def data_messages(handle):
   user_sender_handle = 'andrewbrown'
-  user_receiver_handle = handle
+  user_receiver_handle = request.args.get('user_reciever_handle')
 
   model = Messages.run(user_sender_handle=user_sender_handle, user_receiver_handle=user_receiver_handle)
   if model['errors'] is not None:
@@ -48,10 +48,10 @@ def data_messages(handle):
 @cross_origin()
 def data_create_message():
   user_sender_handle = 'andrewbrown'
-  user_receiver_handle = request.args.get('handle')
-  message = request.args.get('message')
+  user_receiver_handle = request.json['user_receiver_handle']
+  message = request.json['message']
 
-  model = CreateMessage.run(user_sender_handle=user_sender_handle,user_receiver_handle=user_receiver_handle)
+  model = CreateMessage.run(message=message,user_sender_handle=user_sender_handle,user_receiver_handle=user_receiver_handle)
   if model['errors'] is not None:
     return model['errors'], 422
   else:

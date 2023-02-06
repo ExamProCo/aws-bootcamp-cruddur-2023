@@ -7,6 +7,9 @@ import MessageGroupFeed from '../components/MessageGroupFeed';
 import MessagesFeed from '../components/MessageFeed';
 import MessagesForm from '../components/MessageForm';
 
+// [TODO] Authenication
+import Cookies from 'js-cookie'
+
 export default function MessageGroupPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [messages, setMessages] = React.useState([]);
@@ -52,6 +55,13 @@ export default function MessageGroupPage() {
 
   const checkAuth = async () => {
     console.log('checkAuth')
+    // [TODO] Authenication
+    if (Cookies.get('user.logged_in')) {
+      setUser({
+        display_name: Cookies.get('user.name'),
+        handle: Cookies.get('user.username')
+      })
+    }
   };
 
   React.useEffect(()=>{

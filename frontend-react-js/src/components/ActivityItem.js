@@ -31,11 +31,10 @@ export default function ActivityItem(props) {
     const now     = DateTime.now()
     const diff_mins = future.diff(now, 'minutes').toObject().minutes;
     const diff_hours = future.diff(now, 'hours').toObject().hours;
-
-    console.log(value, diff_hours,diff_mins)
+    const diff_days = future.diff(now, 'days').toObject().days;
 
     if (diff_hours > 24.0){
-      return future.toFormat("LLL L");
+      return `${Math.floor(diff_days)}d`;
     } else if (diff_hours < 24.0 && diff_hours > 1.0) {
       return `${Math.floor(diff_hours)}h`;
     } else if (diff_hours < 1.0) {
