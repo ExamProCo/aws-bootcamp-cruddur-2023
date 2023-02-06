@@ -12,15 +12,13 @@ class MessageGroups:
         'display_name': 'Andrew Brown',
         'handle':  'andrewbrown',
         'message': 'Cloud is fun!',
-        'created_at': now.isoformat('#'),
-        'expires_at': (now + timedelta(minutes=30)).isoformat('#')  # 30 minutes
+        'created_at': now.isoformat('#')
       },
       {
         'display_name': 'Andrew Brown',
         'handle':  'andrewbrown',
         'message': 'This platform is great!',
-        'created_at': now.isoformat('#'),
-        'expires_at': (now + timedelta(minutes=60)).isoformat('#')  # 1 hour
+        'created_at': now.isoformat('#')
     }]
     model['data'] = results
     return model

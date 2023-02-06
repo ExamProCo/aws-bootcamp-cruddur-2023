@@ -1,0 +1,125 @@
+openapi: '3.0.2'
+info:
+  title: Cruddur Backend API
+  version: '1.0'
+    
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /api/activities/home:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: OK
+
+  /api/activities/search:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: OK
+  /api/activities:
+    post:
+      responses:
+        '200':
+          description: OK
+  /api/activities/@{handle}:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: OK
+  /api/message_groups:
+    get:
+      description: ''
+      responses:
+        '200':
+          description: Returns an array of messages groups for a specific user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageGroups'
+  /api/messages/@{handle}:
+    get:
+      description: 'Returns private communication between two users'
+      responses:
+        '200':
+          description: Returns an array of messages between two users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Messages'
+  /api/messages:
+    post:
+      description: ''
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_receiver_handle:
+                  type: string
+      responses:
+        '200':
+          description: A single message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        uuid:
+          type: string
+          example: 0056a369-4618-43a4-ad88-e7c371bf5582
+        sender_handle:
+          type: string
+          example: 'worf'
+        reciever_handle:
+          type: string
+          example: 'jadzia'
+        message:
+          type: string
+          example: "Can you order me a prune juice from Quarks?"
+    Messages:
+      type: array
+      properties:
+        items:
+          type: object
+          properties:
+            uuid:
+              type: string
+              example: 0056a369-4618-43a4-ad88-e7c371bf5582
+            display_name:
+              type: string
+              example: "Andrew Brown"
+            handle:
+              type: string
+              example: "andrewbrown"
+            message:
+              type: string
+              example: "Who likes pineapple on their pizza?"
+            created_at:
+              type: string
+              example: "2021-07-27T16:02:08.070557"
+            updated_at:
+              type: string
+              example: "2021-07-27T16:02:08.070557"
+    MessageGroups:
+      type: array
+      properties:
+        items:
+          type: object
+          properties:
+            uuid:
+              type: string
+              example: 0056a369-4618-43a4-ad88-e7c371bf5582
+            uuid:
+              type: string
+              example: 0056a369-4618-43a4-ad88-e7c371bf5582
