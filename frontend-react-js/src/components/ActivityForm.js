@@ -45,6 +45,10 @@ export default function ActivityForm(props) {
     setMessage(event.target.value);
   }
 
+  const ttl_onchange = (event) => {
+    setTtl(event.target.value);
+  }
+
   if (props.popped === true) {
     return (
       <form 

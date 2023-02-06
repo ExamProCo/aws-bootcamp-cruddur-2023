@@ -8,7 +8,7 @@ export default function SuggestedUsersSection(props) {
         Suggested Users
       </div>
       {props.users.map(user => {
-        return <SuggestedUserItem display_name={user.display_name} handle={user.handle} />
+        return <SuggestedUserItem key={user.handle} display_name={user.display_name} handle={user.handle} />
       })}
     </div>
   );
