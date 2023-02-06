@@ -8,31 +8,46 @@ servers:
 paths:
   /api/activities/home:
     get:
-      description: ''
+      description: 'Return a feed of activity based on all users'
       responses:
         '200':
-          description: OK
-
+          description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activities'
   /api/activities/search:
     get:
-      description: ''
+      description: 'Return a feed of activity based on a search term'
       responses:
         '200':
-          description: OK
+          description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activities'
   /api/activities:
     post:
       responses:
         '200':
-          description: OK
+          description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activities'
   /api/activities/@{handle}:
     get:
-      description: ''
+      description: 'Return a feed of activity for a specific user'
       responses:
         '200':
-          description: OK
+          description: Returns an array of activities"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activities'
   /api/message_groups:
     get:
-      description: ''
+      description: 'Return a list of two way private conversations for the user'
       responses:
         '200':
           description: Returns an array of messages groups for a specific user
@@ -72,6 +87,11 @@ paths:
 
 components:
   schemas:
+    Activities:
+      type: array
+      properties:
+        items:
+          $ref: '#/components/schemas/Activity'
     Activity:
       type: object
       properties:
@@ -93,7 +113,6 @@ components:
         expires_at:
           type: string
           example: "2021-07-27T16:02:08.070557"
-
     Message:
       type: object
       properties:
