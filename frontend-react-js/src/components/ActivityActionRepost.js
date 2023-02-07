@@ -5,12 +5,15 @@ export default function ActivityActionRepost(props) {
     console.log('trigger repost')
   }
 
+  let counter;
+  if (props.count > 0) {
+    counter = <div className="counter">{props.count}</div>;
+  }
+
   return (
     <div onClick={onclick} className="action activity_action_repost">
       <RepostIcon className='icon' />
-      <div className="counter">
-        {props.count}
-      </div>
+      {counter}
     </div>
   )
 }

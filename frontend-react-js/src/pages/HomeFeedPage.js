@@ -5,13 +5,16 @@ import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
+import ReplyForm from '../components/ReplyForm';
 
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
-  const [popped, setPopped] = React.useState([]);
+  const [popped, setPopped] = React.useState(false);
+  const [poppedReply, setPoppedReply] = React.useState(false);
+  const [replyActivity, setReplyActivity] = React.useState({});
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
 
@@ -56,8 +59,23 @@ export default function HomeFeedPage() {
     <article>
       <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
       <div className='content'>
-        <ActivityForm popped={popped} setPopped={setPopped} setActivities={setActivities} />
-        <ActivityFeed title="Home" activities={activities} />
+        <ActivityForm  
+          popped={popped}
+          setPopped={setPopped} 
+          setActivities={setActivities} 
+        />
+        <ReplyForm 
+          activity={replyActivity} 
+          popped={poppedReply} 
+          setPopped={setPoppedReply} 
+          setActivities={setActivities} 
+        />
+        <ActivityFeed 
+          title="Home" 
+          setReplyActivity={setReplyActivity} 
+          setPopped={setPoppedReply} 
+          activities={activities} 
+        />
       </div>
       <DesktopSidebar user={user} />
     </article>

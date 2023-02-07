@@ -1,6 +1,6 @@
 .activity_item {
   display: flex;
-  align-items: start;
+  flex-direction: column;
   border-bottom: solid 1px rgb(31,36,49);
   overflow: hidden;
   padding: 16px;
@@ -9,72 +9,11 @@
   border-bottom: none;
 }
 
-.activity_item .activity_content {
-  flex-grow: 1;
-  padding-left: 12px;
-}
-
-.activity_item .activity_avatar {
-  background: rgb(149,0,255);
-  height: 60px;
-  width: 60px;
-  border-radius: 999px;
-  flex-shrink: 0;
-}
-
-.activity_item .activity_meta {
-  display: flex;
-  justify-content: space-between;
-}
-
-.activity_item a.activity_identity {
-  flex-grow: 1;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.activity_item a.activity_identity .display_name {
-  font-weight: 800;
-  color: #fff;
-}
-
-.activity_item  a.activity_identity .handle {
-  color: rgb(255,255,255,0.5);
-}
-
-.activity_item .activity_times {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.activity_item .activity_times .created_at {
-  color: rgb(72,77,95);
-  font-size: 14px;
-}
-
-.activity_item .activity_times .expires_at {
-  color: rgb(149,0,255);
-  font-size: 14px;
-  display: flex;
-  gap: 2px;
-}
-.activity_item .activity_times .expires_at svg.icon {
-  fill: rgb(149,0,255);
-  width: 14px;
-  height: 14px;
-}
-
-.activity_item .message {
-  color: #fff;
-  font-size: 16px;
-  margin-top: 8px;
-}
-
 .activity_item .activity_actions {
   display: flex;
   align-items: flex-end;
   padding-top: 16px;
+  padding-left: 60px;
 }
 
 .activity_item .activity_actions .action{

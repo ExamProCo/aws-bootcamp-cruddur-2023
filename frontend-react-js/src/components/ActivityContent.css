@@ -1,0 +1,67 @@
+.activity_content_wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+}
+
+.activity_content {
+  flex-grow: 1;
+  padding-left: 12px;
+}
+
+.activity_content_wrap .activity_avatar {
+  background: rgb(149,0,255);
+  height: 60px;
+  width: 60px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.activity_content .activity_meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity_content a.activity_identity {
+  flex-grow: 1;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.activity_content a.activity_identity .display_name {
+  font-weight: 800;
+  color: #fff;
+}
+
+.activity_content  a.activity_identity .handle {
+  color: rgb(255,255,255,0.5);
+}
+
+.activity_content .activity_times {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.activity_content .activity_times .created_at {
+  color: rgb(72,77,95);
+  font-size: 14px;
+}
+
+.activity_content .activity_times .expires_at {
+  color: rgb(149,0,255);
+  font-size: 14px;
+  display: flex;
+  gap: 2px;
+}
+.activity_content .activity_times .expires_at svg.icon {
+  fill: rgb(149,0,255);
+  width: 14px;
+  height: 14px;
+}
+
+.activity_content .message {
+  color: #fff;
+  font-size: 16px;
+  margin-top: 8px;
+}

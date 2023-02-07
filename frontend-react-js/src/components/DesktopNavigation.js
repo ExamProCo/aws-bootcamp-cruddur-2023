@@ -12,7 +12,6 @@ export default function DesktopNavigation(props) {
   let messagesLink;
   let profileLink;
   if (props.user) {
-    console.log("props.user",props.user)
     button = <CrudButton setPopped={props.setPopped} />;
     profile = <ProfileInfo user={props.user} />;
     notificationsLink = <DesktopNavigationLink 
