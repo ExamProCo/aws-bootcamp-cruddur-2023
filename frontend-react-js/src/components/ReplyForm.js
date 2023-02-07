@@ -18,7 +18,7 @@ export default function ReplyForm(props) {
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/${props.activity_uuid}/reply`
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/${props.activity.uuid}/reply`
       const res = await fetch(backend_url, {
         method: "POST",
         headers: {
@@ -26,14 +26,20 @@ export default function ReplyForm(props) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          activity_uuid: props.activity_uuid,
           message: message
         }),
       });
       let data = await res.json();
       if (res.status === 200) {
         // add activity to the feed
-        props.setActivities(current => [data,...current]);
+
+        let activities_deep_copy = JSON.parse(JSON.stringify(props.activities))
+        let found_activity = activities_deep_copy.find(function (element) {
+          return element.uuid ===  props.activity.uuid;
+        });
+        found_activity.replies.push(data)
+
+        props.setActivities(activities_deep_copy);
         // reset and close the form
         setCount(0)
         setMessage('')
@@ -52,7 +58,6 @@ export default function ReplyForm(props) {
   }
 
   let content;
-  console.log('pp',props.activity)
   if (props.activity){
     content = <ActivityContent activity={props.activity} />;
   }
@@ -80,7 +85,7 @@ export default function ReplyForm(props) {
               />
               <div className='submit'>
                 <div className={classes.join(' ')}>{240-count}</div>
-                <button type='submit'>Crud</button>
+                <button type='submit'>Reply</button>
               </div>
             </form>
           </div>

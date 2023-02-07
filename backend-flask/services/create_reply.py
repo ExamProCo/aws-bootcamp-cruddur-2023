@@ -36,3 +36,4 @@ class CreateReply:
         'created_at': now.isoformat(),
         'reply_to_activity_uuid': activity_uuid
       }
+    return model
