@@ -21,7 +21,7 @@ Provide a descriptive name for this budget:
 "5.00"
 Email recipients:
 "email.com"
-Select: Cate Budget
+Select: Create Budget
 
 (2) Set an AWS Budget:
 Select "AWS_Bootcamp_Budget"
