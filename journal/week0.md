@@ -25,5 +25,30 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
-  ```
-  *__Persisting earlier exported values to GitPod's workspace, use:__* `gp env <AWS_ENV_VARIABLE>=<AWS_VALUE>`
+```
+*__Persisting earlier exported values to GitPod's workspace, use:__* `gp env <AWS_ENV_VARIABLE>=<AWS_VALUE>`
+  
+#### Create Budget via AWS CLI
+The [CLI Documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/budgets/create-budget.html) details how to use _Budgets_. We'll be creating the budget using the example in the documentation. 
+You can persist the Account ID variable using: `gp env AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)`. After creating the respective `json` files for the budget and notification, you can run this command in terminal:
+```
+  aws budgets create-budget \
+    --account-id $AWS_ACCOUNT_ID \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+``` 
+
+#### Create SNS Topic using the AWS CLI
+To create topic, use `aws sns create-topic --name evebootcamp-billing-alarm` Then you need to subscribe to the topic so you can be notified. To subscribe, use:
+```
+aws sns subscribe \
+    --topic-arn="arn:aws:sns:us-east-1:<your_acct_id>:<your_topic_name>" \
+    --protocol=email \
+    --notification-endpoint=everlygrandest+bootcamp@gmail.com
+```
+
+#### Creating a Billing Alarm via AWS CLI
+Using this [json file](https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-0/aws/json/alarm_config.json.example), we will be updating the `arn` on line 6 to our previously created Topic `arn`. Then running the `aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json` command to set up the alarm
+
+
+  
