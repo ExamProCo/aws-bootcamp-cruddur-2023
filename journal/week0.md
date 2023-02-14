@@ -1,5 +1,10 @@
 # Week 0 — Billing and Architecture
 
+#### Conceptual Diagram
+![image](https://user-images.githubusercontent.com/64602124/218861357-a9f0ad16-be41-4393-9a3a-7eb92018395c.png)
+
+
+
 #### Installing AWS CLI via my GitPod account:
 From within my GitPod terminal, I did the following:
 1. `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"` --> this will download the binary files & save it as awscliv2.zip
