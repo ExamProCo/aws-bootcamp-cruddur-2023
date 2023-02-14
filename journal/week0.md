@@ -41,7 +41,9 @@ You can persist the Account ID variable using: `gp env AWS_ACCOUNT_ID=$(aws sts 
     --account-id $AWS_ACCOUNT_ID \
     --budget file://aws/json/budget.json \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
-``` 
+```
+![image](https://user-images.githubusercontent.com/64602124/218876427-458454e5-5c08-4b10-94bd-00fecedbc626.png)
+
 
 #### Create SNS Topic using the AWS CLI
 To create topic, use `aws sns create-topic --name evebootcamp-billing-alarm` Then you need to subscribe to the topic so you can be notified. To subscribe, use:
@@ -51,9 +53,12 @@ aws sns subscribe \
     --protocol=email \
     --notification-endpoint=everlygrandest+bootcamp@gmail.com
 ```
+![image](https://user-images.githubusercontent.com/64602124/218877385-7977a8a3-7531-469d-b8a5-79f993a329e0.png)
+
 
 #### Creating a Billing Alarm via AWS CLI
 Using this [json file](https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-0/aws/json/alarm_config.json.example), we will be updating the `arn` on line 6 to our previously created Topic `arn`. Then running the `aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json` command to set up the alarm
 
+![image](https://user-images.githubusercontent.com/64602124/218876557-50f896d0-6903-4c5d-9f8a-1e6b3c4f5873.png)
 
-  
+
