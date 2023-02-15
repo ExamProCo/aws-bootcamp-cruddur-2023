@@ -3,6 +3,12 @@
 #### Conceptual Diagram
 ![image](https://user-images.githubusercontent.com/64602124/218861357-a9f0ad16-be41-4393-9a3a-7eb92018395c.png)
 
+#### Logical Architecture
+Here's a link to [view in Lucid Chart](https://lucid.app/lucidchart/e89a0ab2-aae7-4930-88b9-f6cb119be1dc/edit?invitationId=inv_caf204c3-4e28-4b8a-b39d-eb5ae1fdfaff)
+
+![image](https://user-images.githubusercontent.com/64602124/219190588-c900ae9d-cd6d-4763-8dfb-7b6f9e2e0d7a.png)
+
+
 
 
 #### Installing AWS CLI via my GitPod account:
