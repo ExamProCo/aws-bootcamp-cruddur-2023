@@ -30,6 +30,12 @@ Save
 ```
 msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 ```
+confirmed the installation witht command:
+```
+aws --version
+```
+and I got the result:
+"aws-cli/2.10.0 Python/3.9.11 Windows/10 exe/AMD64 prompt/off"
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
 
