@@ -42,6 +42,7 @@ I was able to log in the AWS CLI with the command:
 ```
 aws configure
 ...
+
 entered my AWS Access Key ID, AWS Access Key, Default region name, and Default output format.
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
