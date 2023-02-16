@@ -29,3 +29,5 @@ Create an architectural diagram (to the best of your ability) the CI/CD logical 
 
 Research the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
 Open a support ticket and request a service limit
+
+Architectural diagram Link: https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-651%2C-78%2C2314%2C1100%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c
