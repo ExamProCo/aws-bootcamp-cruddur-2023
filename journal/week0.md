@@ -37,6 +37,7 @@ Researched the technical and service limits of specific services and how they co
 Opened a support ticket and request a service limit.
 Personal Article link about "AWS LAMBDA: (1) what is it? (2) what are its service limits? (3) how do you request a service limit increase?"
 https://www.aws information.com/2023/02/15/aws-lambda-1-what-is-it-2-what-is-its-service-limits-3-how-do-you-request-a-service-limit-increase/
+
 Completed Security Quiz.
 
 Completed pricing Quiz.
