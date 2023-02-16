@@ -25,14 +25,13 @@ Save
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
 
-◆ Created an architectural diagram in LUCID Charts
-rchitectural diagram Link:
+◆ Created an architectural diagram in LUCID Charts architectural diagram:
 
 https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-102%2C77%2C2522%2C1302%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c
 
 ◆ sketch an architectural diagram on a NAPKIN. 
 
-Link: https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin.jpg
+https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin.jpg
 
 ◆ Researched the technical and service limits of AWS Lambda function and how they could impact the technical path for technical flexibility. 
 
