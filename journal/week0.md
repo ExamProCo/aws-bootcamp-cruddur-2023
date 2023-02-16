@@ -25,7 +25,7 @@ Save
 
 ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
-◆ AWS CLI was installed on the command prompt: 
+◆ [AWS CLI Microsoft-supported versions of 64-bit Windows] (https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) was installed on the command prompt: 
 
 ```
 msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
