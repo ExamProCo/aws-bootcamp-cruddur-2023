@@ -34,4 +34,8 @@ Link: https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin
 
 Researched the technical and service limits of specific services and how they could impact the technical path for technical flexibility. 
 
-Opened a support ticket and request a service limit
+Opened a support ticket and request a service limit.
+
+Completed Security Quiz.
+
+Completed pricing Quiz.
