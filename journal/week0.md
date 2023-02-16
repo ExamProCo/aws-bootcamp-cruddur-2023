@@ -34,10 +34,8 @@ https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_
 https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin.jpg
 
 ◆ Researched the technical and service limits of AWS Lambda function and how they could impact the technical path for technical flexibility. 
-
-◆ Opened a support ticket and requested a service limit.
-
-◆ Wrote an article about "AWS LAMBDA: (1) what is it? (2) what are its service limits? (3) how do you request a service limit increase?"
+Opened a support ticket and requested a service limit.
+Wrote an article about "AWS LAMBDA: (1) what is it? (2) what are its service limits? (3) how do you request a service limit increase?"
 
 https://www.awsinformation.com/2023/02/15/aws-lambda-1-what-is-it-2-what-is-its-service-limits-3-how-do-you-request-a-service-limit-increase/
 
