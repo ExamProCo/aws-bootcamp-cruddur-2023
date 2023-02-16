@@ -39,9 +39,10 @@ and I got the result:
 "aws-cli/2.10.0 Python/3.9.11 Windows/10 exe/AMD64 prompt/off"
 
 I was able to log in the AWS CLI with the command:
+
 ```
 aws configure
-...
+```
 
 entered my AWS Access Key ID, AWS Access Key, Default region name, and Default output format.
 
