@@ -1,4 +1,6 @@
     # Week 0 — Billing and Architecture
+    
+    ## REQUIRED HOMEWORK
 
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
