@@ -1,4 +1,4 @@
-# Week 0 — Billing and Architecture
+    # Week 0 — Billing and Architecture
 
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
@@ -40,6 +40,6 @@ Link: https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin
 
 https://www.awsinformation.com/2023/02/15/aws-lambda-1-what-is-it-2-what-is-its-service-limits-3-how-do-you-request-a-service-limit-increase/
 
-◆ Completed Security Quiz.
+◆ Completed the Security Quiz.
 
-◆ Completed pricing Quiz.
+◆ Completed the Pricing Quiz.
