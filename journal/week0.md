@@ -1,7 +1,7 @@
 # Week 0 — Billing and Architecture
 
 
-Destroyed root account credentials, set MFA, IAM role AdministratorAccess
+Destroyed root account credentials,Generated credentials for user accound, set MFA, IAM role AdministratorAccess
 ![task1snipshot](../_docs/assets/Task1.png)
 
 ![task1.2Sniptshot](../_docs/assets/Task1.2.png)
@@ -30,7 +30,9 @@ Eventbridge to Hookup Health Dashboard to SNS and send notification
 
 
 
+Sing-up on Honecombo and Rollbar
 
+![Alt text](../_docs/assets/honeycombo-rollbar.png)
 
 
 
