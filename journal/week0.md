@@ -66,6 +66,7 @@ https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_
 ## HOMEWORK CHALLENGES
 
 ◆ sketch an architectural diagram on a NAPKIN. 
+![Architectural sketch on a napkin](assets/Screenshot%20(185).png)
 
 https://github.com/FranklinMoux/aws-bootcamp-cruddur-2023/blob/main/napkin.jpg
 
