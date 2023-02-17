@@ -1,0 +1,9 @@
+aws budgets create-budget \
+    --account-id 967673295761 \
+    --budget file://aws/json/budget.json \
+    --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
+
+aws sns subscribe \
+    --topic-arn "arn:aws:sns:eu-central-1:967673295761:billing-alarm" \
+    --protocol email \
+    --notification-endpoint ttornike1991@gmail.com
