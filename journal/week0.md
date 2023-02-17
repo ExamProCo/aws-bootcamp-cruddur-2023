@@ -50,6 +50,7 @@ aws configure
 entered my AWS Access Key ID, AWS Access Key, Default region name, and Default output format.
 
 ◆ used Cloudshell
+
 ![Cloudshell](assets/AWS%20CLoudshell.png)
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
