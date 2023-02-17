@@ -2,6 +2,16 @@
     
  ## REQUIRED HOMEWORK
 
+◆ Generated AWS Credential. Created a User Group "Admin User Group" and a User attached to that User Group. 
+
+![Created a User)[assets/Screenshot%20(184).png]
+
+◆ Set an AWS Budget:
+Select "AWS_Bootcamp_Budget"
+Edit Alerts
+Use default 85% of budgeted amount
+Save
+
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
 Budget name
@@ -19,9 +29,24 @@ Edit Alerts
 Use default 85% of budgeted amount
 Save
 
-◆ Generated AWS Credential. Created a User Group "Admin User Group" and a User attached to that User Group. 
-
 ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
+
+◆ Set a Billing alarm in AWS Billing & Cost Management console:
+Select: Budgets/create Budget/Monthly cost budget/
+Budget name
+Provide a descriptive name for this budget:
+"AWS_Bootcamp_Budget"
+ Enter your budgeted amount ($):
+"5.00"
+Email recipients:
+"email.com"
+Select: Create Budget
+
+◆ Set an AWS Budget:
+Select "AWS_Bootcamp_Budget"
+Edit Alerts
+Use default 85% of budgeted amount
+Save
 
 ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
