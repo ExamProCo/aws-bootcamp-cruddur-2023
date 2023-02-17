@@ -51,7 +51,7 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 
 ◆ used Cloudshell
 
-![Cloudshell](assets/AWS%20CLoudshell.png)
+![Cloudshell](assets/Screenshot%20(185).png)
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
 
