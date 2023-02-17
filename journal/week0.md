@@ -68,7 +68,7 @@ https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_
 ◆ sketch an architectural diagram on a NAPKIN. 
 
 ![Architectural sketch on a napkin]
-(aassets/napkin.jpg)
+(assets/napkin.jpg)
 
 ◆ Researched the technical and service limits of AWS Lambda function and how they could impact the technical path for technical flexibility. 
 Opened a support ticket and requested a service limit.
