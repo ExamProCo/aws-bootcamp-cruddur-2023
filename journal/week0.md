@@ -55,9 +55,7 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 
 ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
 
-◆ Created an architectural diagram in LUCID Charts architectural diagram:
-
-https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-102%2C77%2C2522%2C1302%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c
+◆ [Created an architectural diagram in LUCID Charts architectural diagram](https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-102%2C77%2C2522%2C1302%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c)
 
 ◆ Completed the Security Quiz.
 
