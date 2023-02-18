@@ -23,30 +23,19 @@ Email recipients:
 "email.com"
 Select: Create Budget
 
-![Budget for aws bootcamp](assets/budget%20pic.jpeg)
- 
- ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
-
-◆ Set a Billing alarm in AWS Billing & Cost Management console:
-Select: Budgets/create Budget/Monthly cost budget/
-Budget name
-Provide a descriptive name for this budget:
-"AWS_Bootcamp_Budget"
- Enter your budgeted amount ($):
-"5.00"
-Email recipients:
-"email.com"
-Select: Create Budget
-
 ◆ Set an AWS Budget:
 Select "AWS_Bootcamp_Budget"
 Edit Alerts
 Use default 85% of budgeted amount
 Save
 
+![Budget for aws bootcamp](assets/budget%20pic.jpeg)
+ 
+ ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
+
 ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
-◆ AWS Installation
+◆ AWS CLI Installation
 
 [AWS CLI Microsoft-supported versions of 64-bit Windows](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 was installed on the command prompt: 
