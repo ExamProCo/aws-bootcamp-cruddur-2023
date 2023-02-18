@@ -1,6 +1,12 @@
 # Week 0 — Billing and Architecture
 
 
+### Initial Diagram
+
+![Lucid Chart - Architecture Diagram](https://github.com/ahairshi/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Arch%20diagram.png)
+
+
+
 ### Architecture Diagram
 
 ![Lucid Chart - Architecture Diagram](https://lucid.app/publicSegments/view/b93cc29c-8559-4945-8ac7-5c269d135d23/image.png)
