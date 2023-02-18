@@ -12,6 +12,10 @@ Edit Alerts
 Use default 85% of budgeted amount
 Save
 
+![Buget for aws bootcamp create](![image](https://user-images.githubusercontent.com/110202420/219821781-083b27cd-9ff1-45a3-97f9-5eb2e9a23720.png)
+ 
+ 
+
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
 Budget name
