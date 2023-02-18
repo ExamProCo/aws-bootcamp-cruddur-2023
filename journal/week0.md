@@ -32,20 +32,11 @@ Save
 
 ![Budget for aws bootcamp](assets/budget%20pic.jpeg)
  
- 
- 
- 
 ### ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
 
-
-
-
-◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
+### ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
 ![eventbridge healt alert](assets/eventbridge%20health.jpeg)
-
-
-
 
 
 ### ◆ AWS CLI Installation
@@ -72,22 +63,13 @@ aws configure
 
 entered my AWS Access Key ID, AWS Access Key, Default region name, and Default output format.
 
-
-
-
-
 ### ◆ used Cloudshell
 
 ![Cloudshell](assets/Screenshot%20(185).png)
 
-
-
 ### ◆ Reviewed all the questions of each pillar in the Well Architected Tool.
 
 ![well architected tool questions](assets/well%20architected%20framework.jpeg)
-
-
-
 
 
 ### ◆ [Created an architectural diagram in LUCID Charts architectural diagram](https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-211%2C77%2C2739%2C1302%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c)
@@ -95,27 +77,15 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 ![Lucid Chart Architectural Diagram](assets/AWS%20bootcamp%20diagram.png)
 
 
-
-
-
 ### ◆ Completed the Security Quiz.
 
-
-
 ### ◆ Completed the Pricing Quiz.
-
-
-
 
 ## HOMEWORK CHALLENGES
 
 ### ◆ sketch an architectural diagram on a NAPKIN. 
 
 ![Architectural sketch on a napkin](assets/napkin.jpg)
-
-
-
-
 
 ### ◆ Researched the technical and service limits of AWS Lambda function and how they could impact the technical path for technical flexibility. 
 Opened a support ticket and requested a service limit.
