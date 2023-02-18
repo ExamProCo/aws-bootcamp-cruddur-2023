@@ -22,3 +22,7 @@ i tried in cloud shell in us east 1 region.
 image
 ![prrof od working aws cli](Assets/Screenshot 2023-02-19 at 12.16.25 am.png)
 ###Homework challenge
+Created billing alarm using aws management console
+image
+Created aws budget too
+image
