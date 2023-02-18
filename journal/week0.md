@@ -109,7 +109,7 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 ![Architectural sketch on a napkin](assets/napkin.jpg)
 
 ### ◆ Researched the technical and service limits of AWS Lambda function and how they could impact the technical path for technical flexibility. 
-Opened a support ticket and requested a service limit.
+Opened a support ticket and requested an increase of AWS LAMDA service limit.
 Wrote an article on:
 
 [AWS LAMBDA: (1) what is it? (2) what are its service limits? (3) how do you request a service limit increase?](https://www.awsinformation.com/2023/02/15/aws-lambda-1-what-is-it-2-what-is-its-service-limits-3-how-do-you-request-a-service-limit-increase/)
