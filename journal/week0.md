@@ -33,12 +33,18 @@ Save
 ![Budget for aws bootcamp](assets/budget%20pic.jpeg)
  
  
+ 
+ 
 ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
+
+
 
 
 ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
 ![eventbridge healt alert](assets/eventbridge%20health.jpeg)
+
+
 
 
 
@@ -68,6 +74,8 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 
 
 
+
+
 ◆ used Cloudshell
 
 ![Cloudshell](assets/Screenshot%20(185).png)
@@ -80,16 +88,23 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 
 
 
+
+
 ◆ [Created an architectural diagram in LUCID Charts architectural diagram](https://lucid.app/lucidchart/4698c1f4-05d6-409e-8b75-674aa7893ede/edit?viewport_loc=-211%2C77%2C2739%2C1302%2C0_0&invitationId=inv_d6fc401f-cc02-4f23-8e54-233310f9f66c)
 
 ![Lucid Chart Architectural Diagram](assets/AWS%20bootcamp%20diagram.png)
 
 
 
+
+
 ◆ Completed the Security Quiz.
 
 
+
 ◆ Completed the Pricing Quiz.
+
+
 
 
 ## HOMEWORK CHALLENGES
@@ -97,6 +112,8 @@ entered my AWS Access Key ID, AWS Access Key, Default region name, and Default o
 ◆ sketch an architectural diagram on a NAPKIN. 
 
 ![Architectural sketch on a napkin](assets/napkin.jpg)
+
+
 
 
 
