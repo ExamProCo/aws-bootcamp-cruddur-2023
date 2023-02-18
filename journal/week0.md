@@ -24,5 +24,13 @@ image
 ###Homework challenge
 Created billing alarm using aws management console
 image
-Created aws budget too
+![billing alert](Assets/Screenshot 2023-02-19 at 1.55.20 am.png)
+Created aws budget 
 image
+![budget](Assets/Screenshot 2023-02-19 at 1.53.51 am.png)
+Created conceptual diagram and architecture diagram
+links
+.[lucid chart links](https://lucid.app/lucidchart/d4254219-90b1-418d-afea-35f369691d31/edit?page=0_0&invitationId=inv_2c548062-16d8-4d37-92da-80220680dfba#)
+![Cruddder logical design image](Assets/Screenshot 2023-02-19 at 2.02.17 am.png)
+.[lucid chart links](https://lucid.app/lucidchart/d4254219-90b1-418d-afea-35f369691d31/edit?viewport_loc=-11%2C-11%2C1711%2C1005%2CPfkyiKpiuSIE&invitationId=inv_2c548062-16d8-4d37-92da-80220680dfba)
+![Cruddder logical design image](Assets/Screenshot 2023-02-19 at 2.02.42 am.png)
