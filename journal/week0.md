@@ -72,7 +72,9 @@ aws --version
 ```
 and I got the result:
 
-"aws-cli/2.10.0 Python/3.9.11 Windows/10 exe/AMD64 prompt/off"
+```
+aws-cli/2.10.0 Python/3.9.11 Windows/10 exe/AMD64 prompt/off
+```
 
 I was able to log in the AWS CLI with the command:
 
