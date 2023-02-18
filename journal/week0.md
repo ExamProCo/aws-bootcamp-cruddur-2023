@@ -11,7 +11,9 @@
 
 Select "AWS_Bootcamp_Budget"
 Edit Alerts
+
 Use default 85% of budgeted amount
+
 Save
 
 Set a Billing alarm in AWS Billing & Cost Management console:
