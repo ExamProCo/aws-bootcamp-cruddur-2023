@@ -35,6 +35,8 @@ Save
 
 ◆ Used EventBridge to hookup Health Dashboard to SNS and send notification when there is a service health issue.
 
+![eventbridge healt alert](assets/eventbridge%20health.jpeg)
+
 ◆ AWS CLI Installation
 
 [AWS CLI Microsoft-supported versions of 64-bit Windows](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
