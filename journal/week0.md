@@ -2,7 +2,7 @@
     
  ## REQUIRED HOMEWORK
 
-◆ Generated AWS Credential. Created a User Group "Admin User Group" and a User attached to that User Group. 
+### ◆ Generated AWS Credential. Created a User Group "Admin User Group" and a User attached to that User Group. 
 
 ![Created a User](assets/Screenshot%20(184).png)
 
