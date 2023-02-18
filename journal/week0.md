@@ -12,10 +12,6 @@ Edit Alerts
 Use default 85% of budgeted amount
 Save
 
-![Budget for aws bootcamp](assets/budget%20pic.jpeg)
- 
- 
-
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
 Budget name
@@ -27,13 +23,9 @@ Email recipients:
 "email.com"
 Select: Create Budget
 
-◆ Set an AWS Budget:
-Select "AWS_Bootcamp_Budget"
-Edit Alerts
-Use default 85% of budgeted amount
-Save
-
-◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
+![Budget for aws bootcamp](assets/budget%20pic.jpeg)
+ 
+ ◆ Destroyed root account credentials, Set MFA for IAM role and Root User. 
 
 ◆ Set a Billing alarm in AWS Billing & Cost Management console:
 Select: Budgets/create Budget/Monthly cost budget/
