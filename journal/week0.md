@@ -33,18 +33,33 @@ Opened Cloudshell from AWS Console and logged in and able to check through sts i
 
 Installed AWS CLI inside Gitpod and also configured Credentials as environment variables.
 
+<img width="1719" alt="aws cli" src="https://user-images.githubusercontent.com/8875454/220388343-cf60084d-eaea-46db-8022-bd77b41885b7.png">
 
 
-## Budget and billing alarm
+## Creating a budget
 
 
-Created a Budget in AWS Console
+I have created a Budget in AWS Console for zero spend budget (1$) and EC2 usage for 20 hours
+
+I have created a budget for spend of 20$ through AWS CLI.
+
+<img width="1579" alt="budgets" src="https://user-images.githubusercontent.com/8875454/220386541-7031692f-126d-474e-b0ef-8a50c1e59ed3.png">
 
 
-Created a Billing Alarm via AWS CLI
 
+I have Created a Billing Alarm via AWS CLI
 
 <img width="1579" alt="billing_alarm_sns" src="https://user-images.githubusercontent.com/8875454/220376848-f2dd994a-c415-437d-8329-075190035aa7.png">
+
+Have setup a cloudwatch SNS topic from AWS CLI as below.
+
+<img width="1668" alt="alarm " src="https://user-images.githubusercontent.com/8875454/220387796-2bc89832-43c7-409f-bf09-50a42202e47f.png">
+
+
+I could see the Billing Alarm notification in Cloudwatch as below 
+
+<img width="1724" alt="Screenshot 2023-02-21 at 8 58 22 PM" src="https://user-images.githubusercontent.com/8875454/220387492-4c271487-7ad4-4aa3-96dc-515687fc73ae.png">
+
 
 
 # Additional Homework/tasks 
