@@ -9,3 +9,7 @@
 ![Got the app running and created a profile on the app](assets/apprunning.png)
 
 ### • I was able to follow through the video for creating the notifications for backend and frontend.
+
+### • I watched all videos and completed both quizzes
+
+### • However, I did not have time to go over the DynamoDB, Postgres vs Docker. I will have to do my best to do that ASAP.
