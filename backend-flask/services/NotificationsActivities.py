@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta, timezone
-class HomeActivities:
+class NotificationsActivities:
   def run():
     now = datetime.now(timezone.utc).astimezone()
     results = [{
       'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
-      'handle':  'coco',
-      'message': 'I am a white unicorn',
+      'handle':  'Andrew Brown',
+      'message': 'Cloud is fun!',
       'created_at': (now - timedelta(days=2)).isoformat(),
       'expires_at': (now + timedelta(days=5)).isoformat(),
       'likes_count': 5,
@@ -21,6 +21,6 @@ class HomeActivities:
         'reposts_count': 0,
         'created_at': (now - timedelta(days=2)).isoformat()
       }],
-    },
+    }
     ]
     return results
