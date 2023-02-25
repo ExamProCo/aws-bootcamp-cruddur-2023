@@ -33,22 +33,3 @@
         "ReturnData": true
     }]
   }
-   16  
-  aws/json/budget-notifications-with-subscribers.json
-  @@ -0,0 +1,16 @@
-  [
-    {
-        "Notification": {
-            "ComparisonOperator": "GREATER_THAN",
-            "NotificationType": "ACTUAL",
-            "Threshold": 80,
-            "ThresholdType": "PERCENTAGE"
-        },
-        "Subscribers": [
-            {
-                "Address": "***REMOVED***",
-                "SubscriptionType": "EMAIL"
-            }
-        ]
-    }
-  ]
