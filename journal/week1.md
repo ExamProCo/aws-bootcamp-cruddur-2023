@@ -1,5 +1,7 @@
 # Week 1 — App Containerization
 
+### created a Dockerfile for the frontend and backend ran the containers and got the app running
+
 ![created a Dockerfile for the frontend and backend ran the containers and got the app running](assets/imagescreated.png)
 
 
