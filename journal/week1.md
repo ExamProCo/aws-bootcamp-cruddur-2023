@@ -10,6 +10,8 @@
 
 ### • I was able to follow through the video for creating the notifications for backend and frontend.
 
+### • I followed the video on creating the notification feature (Backend and Frontend) and got all the codes running. (commit and sync on my repo).
+
 ### • I watched all videos and completed both quizzes
 
-### • However, I did not have time to go over the DynamoDB, Postgres vs Docker. I will have to do my best to do that ASAP.
+### • However, I did not have time to go over the DynamoDB, Postgres vs Docker. I will do it ASAP.
