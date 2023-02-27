@@ -6,3 +6,10 @@ opentelemetry-sdk \
 opentelemetry-exporter-otlp-proto-http \
 pentelemetry-instrumentation-flask \
 pentelemetry-instrumentation-requests
+
+aws-xray-sdk
+
+watchtower
+
+blinker
+rollbar
