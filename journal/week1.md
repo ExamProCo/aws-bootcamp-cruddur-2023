@@ -14,4 +14,6 @@
 
 ### • I watched all videos and completed both quizzes
 
-### • However, I did not have time to go over the DynamoDB, Postgres vs Docker. I will do it ASAP.
+### • I installed DynamoDB local and got the Postgres database working 
+
+![postgres database](assets/postgre.png) 
