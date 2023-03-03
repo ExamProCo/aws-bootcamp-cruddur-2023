@@ -1,7 +1,8 @@
 # Week 2 — Distributed Tracing
 
 I installed DynamoDB local and Postgres by following Week-1 video. 
-![assets/postgre.png](postgres)
+
+![assets/postgre.png](assets/postgre.png)
 
 Then I watched Ashish's video on "Observability Security Considerations" which explained about the nuances between Observability and Monitoring, the AWS services used for that purpose such as CloudWatch (logs, metrics, tracing), CloudTrail, EventBridge (event driven security), AWS Detective. That helped me to understand the importance of Week 2 focus.
 
