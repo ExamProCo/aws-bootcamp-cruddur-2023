@@ -7,7 +7,7 @@ The AWS Free Tier provides customers the ability to explore and try out AWS serv
 
 1 - Conceptual Diagram in Lucid Charts or on a Napkin
 
-  <img align="right" alt="GIF" src="https://github.com/papicool/papicool/blob/main/code.gif?raw=true" width="500" height="320" />
+  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Architectural%20%20Diagram.PNG" width="500" height="320" />
 
 2 - Logical Architectual Diagram in Lucid Charts
 
