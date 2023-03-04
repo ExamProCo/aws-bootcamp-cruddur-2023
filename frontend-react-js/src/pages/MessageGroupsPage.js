@@ -2,7 +2,10 @@ import './MessageGroupsPage.css';
 import React from "react";
 
 import DesktopNavigation  from '../components/DesktopNavigation';
-import MessageGroupFeed from '../components/MessageGroupFeed';
+import DesktopSidebar     from '../components/DesktopSidebar';
+import ActivityFeed from '../components/ActivityFeed';
+import ActivityForm from '../components/ActivityForm';
+import ReplyForm from '../components/ReplyForm';
 
 // [TODO] Authenication
 import Cookies from 'js-cookie'
@@ -10,6 +13,8 @@ import Cookies from 'js-cookie'
 export default function MessageGroupsPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
+  const [poppedReply, setPoppedReply] = React.useState(false);
+  const [replyActivity, setReplyActivity] = React.useState({});
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
 
@@ -49,14 +54,31 @@ export default function MessageGroupsPage() {
     loadData();
     checkAuth();
   }, [])
+
   return (
     <article>
       <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
-      <section className='message_groups'>
-        <MessageGroupFeed message_groups={messageGroups} />
-      </section>
       <div className='content'>
+        <ActivityForm  
+          popped={popped}
+          setPopped={setPopped} 
+          setActivities={setActivities} 
+        />
+        <ReplyForm 
+          activity={replyActivity} 
+          popped={poppedReply} 
+          setPopped={setPoppedReply} 
+          setActivities={setActivities} 
+          activities={activities} 
+        />
+        <ActivityFeed 
+          title="Home" 
+          setReplyActivity={setReplyActivity} 
+          setPopped={setPoppedReply} 
+          activities={activities} 
+        />
       </div>
+      <DesktopSidebar user={user} />
     </article>
   );
-}
+}    
