@@ -1,6 +1,7 @@
 import './App.css';
 import HomeFeedPage from './pages/HomeFeedPage';
 import NotificationsFeedPage from './pages/NotificationsFeedPage';
+import UserFeedPage from './pages/UserFeedPage';
 import SignupPage from './pages/SignupPage';
 import SigninPage from './pages/SigninPage';
 import RecoverPage from './pages/RecoverPage';
@@ -11,8 +12,6 @@ import React from 'react';
 import {
   createBrowserRouter,
   RouterProvider
-
-
 } from "react-router-dom";
 
 const router = createBrowserRouter([
