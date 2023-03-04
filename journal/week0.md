@@ -5,13 +5,15 @@ The AWS Free Tier provides customers the ability to explore and try out AWS serv
 
 ## Lucid Charts to build architectures
 
-1 - Conceptual Diagram in Lucid Charts or on a Napkin
+1 - Logical Architectual Diagram in Lucid Charts 
 
-  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Architectural%20%20Diagram.PNG" width="500" height="320" />
+  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Architectural%20%20Diagram.PNG" />
 
-2 - Logical Architectual Diagram in Lucid Charts
+2 - Conceptual Diagram in Lucid Charts
 
-  <img align="right" alt="GIF" src="https://github.com/papicool/papicool/blob/main/code.gif?raw=true" width="500" height="320" />
+
+
+  <img align="right" alt="GIF" src="[https://github.com/papicool/papicool/blob/main/code.gif?raw=true](https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Conceptual%20Diagram.PNG)"/>
 
 
 ## Getting the AWS CLI Working
