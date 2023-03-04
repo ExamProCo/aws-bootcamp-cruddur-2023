@@ -13,7 +13,7 @@ The AWS Free Tier provides customers the ability to explore and try out AWS serv
 
 
 
-  <img align="right" alt="GIF" src="[https://github.com/papicool/papicool/blob/main/code.gif?raw=true](https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Conceptual%20Diagram.PNG)"/>
+  <img src="[https://github.com/papicool/papicool/blob/main/code.gif?raw=true](https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week0/Conceptual%20Diagram.PNG)"/>
 
 
 ## Getting the AWS CLI Working
