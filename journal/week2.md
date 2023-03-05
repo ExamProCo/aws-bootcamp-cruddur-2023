@@ -170,7 +170,8 @@ Add below code to the `xray.json` file
 }
 ```
 
-Create aws xray 
+Create aws xray
+
 ```
 FLASK_ADDRESS="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
 aws xray create-group \
