@@ -125,20 +125,25 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: '0.0.0.0/0'
-        - Description: 'Allow any Frontend 3000'
+        - Description: 'Allow any Frontend TCP 3000'
           IpProtocol: tcp
           FromPort: '3000'
           ToPort: '3000'
           CidrIp: '0.0.0.0/0'
-        - Description: 'Allow any Backend 4567'
+        - Description: 'Allow any Backend TCP 4567'
           IpProtocol: tcp
           FromPort: '4567'
           ToPort: '4567'
           CidrIp: '0.0.0.0/0'
-        - Description: 'Allow any DynamoDB Local 8000'
+        - Description: 'Allow any DynamoDB Local TCP 8000'
           IpProtocol: tcp
           FromPort: '8000'
           ToPort: '8000'
+          CidrIp: '0.0.0.0/0'
+        - Description: 'Allow any AWS X-RAY UDP 8000'
+          IpProtocol: udp
+          FromPort: '2000'
+          ToPort: '2000'
           CidrIp: '0.0.0.0/0'
 
   SessionManagerRole:
