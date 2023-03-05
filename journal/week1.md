@@ -4,6 +4,10 @@ The applications that will be containerised has two components:
 1. backend using python and flask > under backend-flask directory
 2. frontend using react js > under frontend-react-js
 
+- AWS CloudFormation template for deploying docker on ec2 and automatically downloads the required backend & frontend files: https://raw.githubusercontent.com/bayupw/aws-bootcamp-cruddur-2023/main/cruddur-docker-ec2-cfn.yml
+- Backend image at docker hub https://hub.docker.com/r/bayupw/cruddur-backend
+- Frontend image at docker hub https://hub.docker.com/r/bayupw/cruddur-frontend
+
 In this example, we will use Gitpod environment which has docker installed by default.
 
 ### Build Backend Container
