@@ -5,7 +5,7 @@
 Good Article for Debugging Connection Refused
 https://pythonspeed.com/articles/docker-connection-refused/
 
-See Homezork challenges below this page !!!!
+See Homework challenges click on this link https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/week1.md#homework-challenges
 
 ## VSCode Docker Extension
 
