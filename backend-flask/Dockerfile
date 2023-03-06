@@ -21,10 +21,12 @@ COPY . .
 
 # set env variable inside container
 ENV FLASK_ENV=development
+
 ## Step 4:
 # Expose port 80
 EXPOSE ${PORT}
 
 ## Step 5:
 # Run app at container launch
+# python3 -m flask run --host=0.0.0.0 --port 4567
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
