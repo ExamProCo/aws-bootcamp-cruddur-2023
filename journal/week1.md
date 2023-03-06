@@ -220,6 +220,7 @@ networks:
     name: cruddur
 ```
 
+  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week1/docker%20compose.png" />
 ## Adding DynamoDB Local and Postgres
 
 We are going to use Postgres and DynamoDB local in future labs
@@ -302,7 +303,7 @@ volumes:
 ### Run the dockerfile CMD as an external script
 
 ```sh
-  see run_docker.sh ...
+  see run_backend_app.sh in the backend folder...
 ```
 
 ### Push and tag a image to DockerHub (they have a free tier)
@@ -311,6 +312,11 @@ volumes:
 see upload_docker.sh ...
 ```
 
+  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week1/upload%20image.png" />
+  
+  Docker HUB
+  
+  <img src="https://github.com/papicool/aws-bootcamp-cruddur-2023/blob/main/journal/screenshots/week1/image%20uploaded.png" />
 ### Use multi-stage building for a Dockerfile build
 ```sh
 see Dockerfile in the root directory ...
