@@ -17,12 +17,28 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend-react-js:/frontend-react-js
-    healthcheck:
-      test: curl --fail http://localhost:4567/api/activities/home || exit 1
-      interval: 60s
-      retries: 5
-      start_period: 20s
-      timeout: 10s
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+  dynamodb-local:
+    # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
+    # We needed to add user:root to get this working.
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
 
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
@@ -30,3 +46,7 @@ networks:
   internal-network:
     driver: bridge
     name: cruddur
+
+volumes:
+  db:
+    driver: local
