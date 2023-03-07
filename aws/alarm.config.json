@@ -3,7 +3,7 @@
     "AlarmDescription": "This alarm would be triggered if the daily estimated charges exceeds 1$",
     "ActionsEnabled": true,
     "AlarmActions": [
-        "arn:aws:sns:ca-central-1:***REMOVED***:billing-alarm"
+        "arn:aws:sns:<REGION>:<ACCOUNT_ID>:<SNS_TOPIC_NAME>"
     ],
     "EvaluationPeriods": 1,
     "DatapointsToAlarm": 1,

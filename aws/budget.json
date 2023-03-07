@@ -1,9 +1,9 @@
 {
     "BudgetLimit": {
-        "Amount": "1",
+        "Amount": "10",
         "Unit": "USD"
     },
-    "BudgetName": "Example Tag Budget",
+    "BudgetName": "Budget for the Bootcamp2023",
     "BudgetType": "COST",
     "CostFilters": {
         "TagKeyValue": [
@@ -28,3 +28,4 @@
         "End": 3706473600
     },
     "TimeUnit": "MONTHLY"
+  }
