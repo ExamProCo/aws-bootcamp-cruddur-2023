@@ -1,51 +1,36 @@
 import uuid
 from datetime import datetime, timedelta, timezone
-class CreateActivity:
-  def run(message, user_handle, ttl):
+class CreateMessage:
+  def run(message, user_sender_handle, user_receiver_handle):
     model = {
       'errors': None,
       'data': None
     }
+    if user_sender_handle == None or len(user_sender_handle) < 1:
+      model['errors'] = ['user_sender_handle_blank']
 
-    now = datetime.now(timezone.utc).astimezone()
-
-    if (ttl == '30-days'):
-      ttl_offset = timedelta(days=30) 
-    elif (ttl == '7-days'):
-      ttl_offset = timedelta(days=7) 
-    elif (ttl == '3-days'):
-      ttl_offset = timedelta(days=3) 
-    elif (ttl == '1-day'):
-      ttl_offset = timedelta(days=1) 
-    elif (ttl == '12-hours'):
-      ttl_offset = timedelta(hours=12) 
-    elif (ttl == '3-hours'):
-      ttl_offset = timedelta(hours=3) 
-    elif (ttl == '1-hour'):
-      ttl_offset = timedelta(hours=1) 
-    else:
-      model['errors'] = ['ttl_blank']
-
-    if user_handle == None or len(user_handle) < 1:
-      model['errors'] = ['user_handle_blank']
+    if user_receiver_handle == None or len(user_receiver_handle) < 1:
+      model['errors'] = ['user_reciever_handle_blank']
 
     if message == None or len(message) < 1:
       model['errors'] = ['message_blank'] 
-    elif len(message) > 280:
+    elif len(message) > 1024:
       model['errors'] = ['message_exceed_max_chars'] 
 
     if model['errors']:
+      # return what we provided
       model['data'] = {
-        'handle':  user_handle,
+        'display_name': 'Andrew Brown',
+        'handle':  user_sender_handle,
         'message': message
-      }   
+      }
     else:
+      now = datetime.now(timezone.utc).astimezone()
       model['data'] = {
         'uuid': uuid.uuid4(),
         'display_name': 'Andrew Brown',
-        'handle':  user_handle,
+        'handle':  user_sender_handle,
         'message': message,
-        'created_at': now.isoformat(),
-        'expires_at': (now + ttl_offset).isoformat()
+        'created_at': now.isoformat()
       }
     return model
