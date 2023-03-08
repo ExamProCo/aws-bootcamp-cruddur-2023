@@ -1,11 +1,11 @@
 flask
 flask-cors
 
-#opentelemetry-api 
-#opentelemetry-sdk 
-#opentelemetry-exporter-otlp-proto-http 
-#pentelemetry-instrumentation-flask 
-#pentelemetry-instrumentation-requests
+opentelemetry-api 
+opentelemetry-sdk 
+opentelemetry-exporter-otlp-proto-http 
+pentelemetry-instrumentation-flask 
+pentelemetry-instrumentation-requests
 
 aws-xray-sdk
 
