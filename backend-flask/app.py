@@ -21,13 +21,12 @@ from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
 
 # Honeycomb
-#from opentelemetry import trace
-#from opentelemetry.instrumentation.flask import FlaskInstrumentor
-#from opentelemetry.instrumentation.requests import RequestsInstrumentor
-#from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-#from opentelemetry.sdk.trace import TracerProvider
-#from opentelemetry.sdk.trace.export import BatchSpanProcessor
-#from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
+from opentelemetry import trace
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider#from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from opentelemetry.sdk.trace.export import ConsoleSpanExporter, SimpleSpanProcessor
 
 
 # Cloudwatch
@@ -57,7 +56,8 @@ from flask import got_request_exception
 provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
-
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
 
 # Xray recorder
 xray_url = os.getenv("AWS_XRAY_URL")
