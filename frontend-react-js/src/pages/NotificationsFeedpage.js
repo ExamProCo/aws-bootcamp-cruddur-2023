@@ -1,4 +1,4 @@
-import './NotificationFeedPage.css';
+import './NotificationsFeedPage.css';
 import React from "react";
 
 import DesktopNavigation  from '../components/DesktopNavigation';
@@ -10,7 +10,7 @@ import ReplyForm from '../components/ReplyForm';
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
-export default function NotificationFeedPage() {
+export default function NotificationsFeedPage() {
   const [activities, setActivities] = React.useState([]);
   const [popped, setPopped] = React.useState(false);
   const [poppedReply, setPoppedReply] = React.useState(false);
@@ -57,7 +57,7 @@ export default function NotificationFeedPage() {
 
   return (
     <article>
-      <DesktopNavigation user={user} active={'notification'} setPopped={setPopped} />
+      <DesktopNavigation user={user} active={'notifications'} setPopped={setPopped} />
       <div className='content'>
         <ActivityForm  
           popped={popped}
@@ -72,7 +72,7 @@ export default function NotificationFeedPage() {
           activities={activities} 
         />
         <ActivityFeed 
-          title="Notification" 
+          title="Notifications" 
           setReplyActivity={setReplyActivity} 
           setPopped={setPoppedReply} 
           activities={activities} 
