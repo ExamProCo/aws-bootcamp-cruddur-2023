@@ -1,0 +1,13 @@
+#! /usr/bin/bash
+
+#echo "== db-seed"
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="db-seed"
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+
+seed_path="$(realpath .)/db/seed.sql"
+
+echo $seed_path
+
+psql $CONNECTION_URL cruddur < $seed_path
