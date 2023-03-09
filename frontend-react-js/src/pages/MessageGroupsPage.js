@@ -1,4 +1,4 @@
-import './MessageGroupsPage.css';
+import './MessageFeedPage.css';
 import React from "react";
 
 import DesktopNavigation  from '../components/DesktopNavigation';
