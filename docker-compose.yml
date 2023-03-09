@@ -7,12 +7,7 @@ services:
       OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
       OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
       OTEL_SERVICE_NAME: "back-end"
-
-      export HONEYCOMB_API_KEY="9bJvNq6RDQPIl7CC0tdrGC"
-      export HONEYCOMB_SERVICE_NAME="Cruddur"
-      gp env HONEYCOMB_API_KEY="9bJvNq6RDQPIl7CC0tdrGC"
-      gp env HONEYCOMB_SERVICE_NAME="Cruddur"
-    
+ 
 
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
