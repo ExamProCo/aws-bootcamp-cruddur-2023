@@ -16,7 +16,7 @@ services:
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
       ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
-      AWS_COGNITO_USER_POOL_ID: "ca-central-1_CQ4wDfnwc"
+      AWS_COGNITO_USER_POOL_ID: "us-west-1_CQ4wDfnwc"
       AWS_COGNITO_USER_POOL_CLIENT_ID: "5b6ro31g97urk767adrbrdj1g5"    
     build: ./backend-flask
     ports:
@@ -29,7 +29,7 @@ services:
       #REACT_APP_BACKEND_URL: "https://${CODESPACE_NAME}-4567.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
       REACT_APP_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
       REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_USER_POOLS_ID: "ca-central-1_CQ4wDfnwc"
+      REACT_APP_AWS_USER_POOLS_ID: "us-west-1_CQ4wDfnwc"
       REACT_APP_CLIENT_ID: "5b6ro31g97urk767adrbrdj1g5"
     build: ./frontend-react-js
     ports:
@@ -63,7 +63,7 @@ services:
     environment:
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
-      AWS_REGION: "ca-central-1"
+      AWS_REGION: "us-west-1"
     command:
       - "xray -o -b xray-daemon:2000"
     ports:
