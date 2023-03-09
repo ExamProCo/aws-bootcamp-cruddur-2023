@@ -13,7 +13,7 @@ paths:
         - activities
       responses:
         '200':
-          description: Returns an array of activities"
+          description: Returns an array of activities
           content:
             application/json:
               schema:
@@ -150,20 +150,19 @@ paths:
                   $ref: '#/components/schemas/Message'
   /api/activities/notifications:
     get:
-      description: 'Return a feed of activities for all of those that I follow'
+      description: 'Return a feed of activity for all of those that I follow'
       tags:
-       - activities
+        - activities
       parameters: []
       responses:
         '200':
-          description: Returns an arrey of activities
+          description: Returns an array of activities
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Activity'
-
 components:
   schemas:
     Activity:
