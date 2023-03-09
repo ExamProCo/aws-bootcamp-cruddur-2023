@@ -7,7 +7,7 @@ import MessageGroupFeed from '../components/MessageGroupFeed';
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
-export default function MessageGroupsPage() {
+export default function NotificationsFeedPage() {
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
   const [user, setUser] = React.useState(null);
@@ -15,7 +15,7 @@ export default function MessageGroupsPage() {
 
   const loadData = async () => {
     try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/message_groups`
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/notifications`
       const res = await fetch(backend_url, {
         method: "GET"
       });
