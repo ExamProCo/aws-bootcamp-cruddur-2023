@@ -218,6 +218,9 @@ aws xray get-service-graph --start-time $(($EPOCH-600)) --end-time $EPOCH
 ```
 
 ```sh
+cd frontend-react-js
+npm install
+
 export AWS_ACCESS_KEY_ID="keyid"
 export AWS_SECRET_ACCESS_KEY="secretkey"
 export AWS_DEFAULT_REGION="ap-southeast-2"
@@ -291,6 +294,9 @@ Add the following Env Vars to `backend-flask:` under section `environment:` in `
 ```
 
 ```sh
+cd frontend-react-js
+npm install
+
 export AWS_ACCESS_KEY_ID="keyid"
 export AWS_SECRET_ACCESS_KEY="secretkey"
 export AWS_DEFAULT_REGION="ap-southeast-2"
@@ -363,8 +369,12 @@ ROLLBAR_ACCESS_TOKEN: "${ROLLBAR_ACCESS_TOKEN}"
 ```
 
 ```sh
+cd frontend-react-js
+npm install
+
 export ROLLBAR_ACCESS_TOKEN="rollbar access token"
 gp env ROLLBAR_ACCESS_TOKEN="rollbar access token"
 
-docker compose -f "docker-compose.yml" up -d --build
+cd ..
+docker compose -f "docker-compose.yml" up
 ```
