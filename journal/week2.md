@@ -353,13 +353,13 @@ def init_rollbar():
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 ```
 
-Add a new endpoint for testing rollbar to `app.py`
+Add a new endpoint for testing rollbar to `app.py` and report level message as `Warning`
 
 ```py
 @app.route('/rollbar/test')
 def rollbar_test():
-    rollbar.report_message('Hello World!', 'warning')
-    return "Hello World!"
+    rollbar.report_message('Warning: Hello World!', 'warning')
+    return "Warning: Hello World!"
 ```
 
 Add the following Env Var to `backend-flask:` under section `environment:` in `docker-compose.yml` file
@@ -378,3 +378,5 @@ gp env ROLLBAR_ACCESS_TOKEN="rollbar access token"
 cd ..
 docker compose -f "docker-compose.yml" up
 ```
+
+![Sample items screenshot on rollbar](../_docs/assets/rollbar-screenshot.png)
