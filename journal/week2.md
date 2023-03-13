@@ -254,7 +254,6 @@ import logging
 from time import strftime
 ```
 
-
 ```py
 # Configuring Logger to Use CloudWatch
 LOGGER = logging.getLogger(__name__)
@@ -266,6 +265,8 @@ LOGGER.addHandler(cw_handler)
 LOGGER.info("some message")
 ```
 
+Add the following code under 
+
 ```py
 @app.after_request
 def after_request(response):
@@ -274,18 +275,19 @@ def after_request(response):
     return response
 ```
 
-We'll log something in an API endpoint
+To log in the code, add the `LOGGER.info` code under the services e.g., home_activities.py
+
 ```py
-LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
+class HomeActivities:
+  def run():
+    # --- CloudWatch logging ---
+    LOGGER.info("HomeActivities")
 ```
 
-Set the env var in your backend-flask for `docker-compose.yml`
+Add AWS env var `docker-compose.yml` file
 
 ```yml
       AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
       AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
       AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
 ```
-
-> passing AWS_REGION doesn't seems to get picked up by boto3 so pass default region instead
-
