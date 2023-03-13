@@ -32,7 +32,6 @@ from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
 
-
 ```py
 # Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
@@ -229,3 +228,64 @@ gp env AWS_DEFAULT_REGION="ap-southeast-2"
 
 docker compose -f "docker-compose.yml" up -d --build
 ```
+
+
+## AWS CloudWatch
+
+
+Go to ```backend-flask``` directory and add the following line to the `requirements.txt` file
+
+```
+watchtower
+```
+
+Install dependencies from the ```backend-flask``` directory
+
+```sh
+cd backend-flask
+pip install -r requirements.txt
+```
+
+To use CloudWatch, add the following code to the `app.py`. Reference: https://pypi.org/project/watchtower/
+
+```py
+import watchtower
+import logging
+from time import strftime
+```
+
+
+```py
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("some message")
+```
+
+```py
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+```
+
+We'll log something in an API endpoint
+```py
+LOGGER.info('Hello Cloudwatch! from  /api/activities/home')
+```
+
+Set the env var in your backend-flask for `docker-compose.yml`
+
+```yml
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+```
+
+> passing AWS_REGION doesn't seems to get picked up by boto3 so pass default region instead
+
