@@ -4,8 +4,13 @@ from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
 tracer = trace.get_tracer("home.activities")
 
+# CloudWatch
+import logging
+
 class HomeActivities:
-  def run():
+  #def run(logger): # CloudWatch 
+  def run(logger):
+    #logger.info("log home activities") # CloudWatch
     # Honeycomb 
     with tracer.start_as_current_span("home-activities-handler"):
       with tracer.start_as_current_span("mock-data"):
