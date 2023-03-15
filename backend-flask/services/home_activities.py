@@ -9,7 +9,7 @@ import logging
 
 class HomeActivities:
   #def run(logger): # CloudWatch 
-  def run(logger):
+  def run():
     #logger.info("log home activities") # CloudWatch
     # Honeycomb 
     with tracer.start_as_current_span("home-activities-handler"):
