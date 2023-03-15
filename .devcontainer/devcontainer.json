@@ -14,8 +14,7 @@
 		"vscode": {
 			"extensions": [
 				"ms-azuretools.vscode-docker",
-				"ms-python.python",
-				"vscodevim.vim"
+				"ms-python.python"
 			],
 			"settings": {
 				"terminal.integrated.fontSize": 20,
