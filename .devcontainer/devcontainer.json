@@ -1,23 +1,11 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
-
 {
 	"name": "Cruddur Configuration",
-		
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 		
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	"features": {
-		"ghcr.io/devcontainers/features/aws-cli:1": {},
 		
-	// The optional 'workspaceFolder' property is the path VS Code should open by default when
-	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-		
-	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
 		"ghcr.io/devcontainers/features/aws-cli:1": {}
-	},	
-		
 	},
 	"remoteEnv": {
 		"AWS_CLI_AUTO_PROMPT": "on-partial"
@@ -27,9 +15,6 @@
 			"extensions": [
 				"ms-azuretools.vscode-docker",
 				"ms-python.python",
-				"42Crunch.vscode-openapi",
-				"ms-vscode-remote.remote-containers",
-				"GitHub.codespaces",
 				"vscodevim.vim"
 			],
 			"settings": {
@@ -38,9 +23,10 @@
 				"workbench.colorTheme": "Default Dark+ Experimental"
 			}
 		}
-	},
-	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh"
-	
+		
+
+
+	}
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
