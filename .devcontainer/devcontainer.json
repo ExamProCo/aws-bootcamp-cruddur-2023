@@ -14,7 +14,8 @@
 		"vscode": {
 			"extensions": [
 				"ms-azuretools.vscode-docker",
-				"ms-python.python"
+				"ms-python.python",
+				"GitHub.codespaces"
 			],
 			"settings": {
 				"terminal.integrated.fontSize": 20,
