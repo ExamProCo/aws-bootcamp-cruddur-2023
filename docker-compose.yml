@@ -23,9 +23,9 @@ services:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
       REACT_APP_AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
       REACT_APP_AWS_COGNITO_REGION: "${AWS_DEFAULT_REGION}"
-      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_2tDTz4Lzn"
-      REACT_APP_CLIENT_ID: "rs1l5fjhubkgf86qa7hs2vij8"
-      REACT_APP_AWS_USER_POOLS_WEB_CLIENT_ID: "rs1l5fjhubkgf86qa7hs2vij8"
+      REACT_APP_AWS_USER_POOLS_ID: "us-east-1_fjE3ZCqqX"
+      REACT_APP_CLIENT_ID: "6ff7h7vbdua1rvjctbi7lode3l"
+      REACT_APP_AWS_USER_POOLS_WEB_CLIENT_ID: "6ff7h7vbdua1rvjctbi7lode3l"
     build: ./frontend-react-js
     ports:
       - "3000:3000"
