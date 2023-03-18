@@ -9,7 +9,7 @@ import logging
 
 class HomeActivities:
   #def run(logger): # CloudWatch 
-  def run():
+  def run(cognito_user_id=None):
     #logger.info("log home activities") # CloudWatch
     # Honeycomb 
     with tracer.start_as_current_span("home-activities-handler"):
@@ -57,5 +57,17 @@ class HomeActivities:
           'replies': []
         }
         ]
+
+        if cognito_user_id != None:
+          extra = {
+            'uuid': '248959df-3079-4947-b847-9e0892d1bab4',
+            'handle':  'pmf',
+            'message': 'My dear brother, I am just simple Engineer',
+            'created_at': (now - timedelta(hours=1)).isoformat(),
+            'expires_at': (now + timedelta(hours=12)).isoformat(),
+            'likes': 1024,
+            'replies': []
+          }
+          results.insert(0, extra)
         span.set_attribute("app.results_length", len(results))
         return results

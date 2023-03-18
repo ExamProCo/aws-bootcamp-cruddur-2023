@@ -9,3 +9,4 @@ aws-xray-sdk
 watchtower
 blinker
 rollbar
+flask-awscognito
