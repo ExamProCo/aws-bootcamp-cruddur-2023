@@ -13,7 +13,10 @@
 				"ms-azuretools.vscode-docker",
 				"ms-python.python",
 				"dracula-theme.theme-dracula"
-			]
+			],
+			"settings": {
+				"workbench.colorThe":  "Default Dark+ Experimental"
+			}
 		}
 	}
 
