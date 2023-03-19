@@ -52,9 +52,9 @@ Resources:
     Type: AWS::Cognito::UserPoolClient
     Properties:
       UserPoolId: !Ref UserPool
-      AllowedOAuthFlowsUserPoolClient: true
       ClientName: !Ref ClientName
       CallbackURLs: !Ref CallbackURLs
+      AllowedOAuthFlowsUserPoolClient: true
       AllowedOAuthFlows:
         - code
         - implicit
