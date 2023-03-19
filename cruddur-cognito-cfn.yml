@@ -42,6 +42,10 @@ Resources:
       MfaConfiguration: OPTIONAL
       EnabledMfas : 
         - SOFTWARE_TOKEN_MFA 
+      AccountRecoverySetting: 
+        RecoveryMechanisms: 
+        -   Name: verified_email
+            Priority: 2
       UsernameConfiguration: 
         CaseSensitive: false
       AutoVerifiedAttributes:
@@ -52,9 +56,9 @@ Resources:
     Type: AWS::Cognito::UserPoolClient
     Properties:
       UserPoolId: !Ref UserPool
+      AllowedOAuthFlowsUserPoolClient: true
       ClientName: !Ref ClientName
       CallbackURLs: !Ref CallbackURLs
-      AllowedOAuthFlowsUserPoolClient: true
       AllowedOAuthFlows:
         - code
         - implicit
