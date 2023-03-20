@@ -64,6 +64,7 @@ export HONEYCOMB_API_KEY="honeycombapikeyhere"
 To set it in gitpod environment variables, use ```gp env```
 
 ```sh
+export HONEYCOMB_API_KEY="honeycombapikeyhere"
 gp env HONEYCOMB_API_KEY="honeycombapikeyhere"
 ```
 
