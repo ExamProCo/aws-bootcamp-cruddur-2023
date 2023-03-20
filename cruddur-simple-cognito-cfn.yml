@@ -1,0 +1,140 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: Cruddur AWS Cognito CFN
+
+Parameters:
+  CognitoUserPoolName:
+    Type: String
+    MinLength: 3
+    MaxLength: 128
+    AllowedPattern: '[\w\s+=,.@-]+'
+    Default: cruddur-cognito-user-pool
+    Description: Enter a string. Must be alpha numeric 3-128 in length.
+  CognitoClientName:
+    Type: String
+    MinLength: 3
+    MaxLength: 63
+    Default: cruddur-cognito-client
+    AllowedPattern: '[\w\s+=,.@-]+'
+    Description: Enter a string. Must be alpha numeric 3-128 in length.
+
+Resources:
+  CognitoUserPool:
+    Type: AWS::Cognito::UserPool # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
+    Properties:
+
+      # Step 1 - Sign-in Experience
+      UsernameConfiguration: 
+        CaseSensitive: false
+      AliasAttributes: 
+        - "email"      
+      AutoVerifiedAttributes:
+        - email
+      
+      # Step 2 - Security Requirements
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireUppercase: true
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+      MfaConfiguration: "OFF"
+      AccountRecoverySetting: 
+        RecoveryMechanisms: 
+        -   Name: verified_email
+            Priority: 1
+      EmailConfiguration: 
+          EmailSendingAccount: "COGNITO_DEFAULT"
+      AdminCreateUserConfig: 
+          AllowAdminCreateUserOnly: false
+      VerificationMessageTemplate: 
+          DefaultEmailOption: "CONFIRM_WITH_CODE"
+      
+      # Step 3 - Sign-up Experience
+      Schema:
+        - Name: "name"
+          AttributeDataType: "String"
+          DeveloperOnlyAttribute: false
+          Mutable: true
+          Required: true
+          StringAttributeConstraints: 
+              MinLength: "0"
+              MaxLength: "2048"
+        - Name: "preferred_username"
+          AttributeDataType: "String"
+          DeveloperOnlyAttribute: false
+          Mutable: true
+          Required: true
+          StringAttributeConstraints: 
+              MinLength: "0"
+              MaxLength: "2048"
+
+      # Step 5 - Integrate your app
+      UserPoolName: !Sub ${CognitoUserPoolName}
+
+  CognitoUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
+    Properties:
+      UserPoolId: !Ref CognitoUserPool    
+      ClientName: !Ref CognitoClientName
+      SupportedIdentityProviders:
+        - COGNITO
+      RefreshTokenValidity: 30
+      ReadAttributes: 
+        - "address"
+        - "birthdate"
+        - "email"
+        - "email_verified"
+        - "family_name"
+        - "gender"
+        - "given_name"
+        - "locale"
+        - "middle_name"
+        - "name"
+        - "nickname"
+        - "phone_number"
+        - "phone_number_verified"
+        - "picture"
+        - "preferred_username"
+        - "profile"
+        - "updated_at"
+        - "website"
+        - "zoneinfo"
+      WriteAttributes: 
+        - "address"
+        - "birthdate"
+        - "email"
+        - "family_name"
+        - "gender"
+        - "given_name"
+        - "locale"
+        - "middle_name"
+        - "name"
+        - "nickname"
+        - "phone_number"
+        - "picture"
+        - "preferred_username"
+        - "profile"
+        - "updated_at"
+        - "website"
+        - "zoneinfo"
+      ExplicitAuthFlows: 
+        - "ALLOW_CUSTOM_AUTH"
+        - "ALLOW_REFRESH_TOKEN_AUTH"
+        - "ALLOW_USER_SRP_AUTH"
+      PreventUserExistenceErrors: "ENABLED"
+      IdTokenValidity: 60
+      AccessTokenValidity: 60
+      TokenValidityUnits: 
+          AccessToken: "minutes"
+          IdToken: "minutes"
+          RefreshToken: "days"
+
+Outputs:
+  UserPoolID:
+    Value: !Ref CognitoUserPool
+    Description: UserPoolID
+  UserPoolClientID:
+    Value: !Ref CognitoUserPoolClient
+    Description: UserPoolClientID
