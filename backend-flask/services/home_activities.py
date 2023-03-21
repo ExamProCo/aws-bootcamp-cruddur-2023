@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
+from lib.db import pool, query_wrap_array
+
 # Honeycomb 
 from opentelemetry import trace
 tracer = trace.get_tracer("home.activities")

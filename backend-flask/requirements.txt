@@ -10,3 +10,5 @@ watchtower
 blinker
 rollbar
 flask-awscognito
+psycopg[binary]
+psycopg[pool]
