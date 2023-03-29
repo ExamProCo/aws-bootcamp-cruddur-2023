@@ -1,28 +1,60 @@
 from psycopg_pool import ConnectionPool
-import os, sys
+import os, sys, re
+from flask import current_app as app
 
 class Db:
   def __init__(self):
     self.init_pool()
 
+  def template(self,*args):
+    pathing = list((app.root_path,'db','sql',) + args)
+    pathing[-1] = pathing[-1] + ".sql"
+
+    template_path = os.path.join(*pathing)
+
+    green = '\033[92m'
+    no_color = '\033[0m'
+    print("\n")
+    print(f'{green} Load SQL Template: {template_path} {no_color}')
+
+    with open(template_path, 'r') as f:
+      template_content = f.read()
+    return template_content
+
   def init_pool(self):
-    connection_url = os.getenv("CONNECTION_URL")
+    connection_url = os.getenv("PROD_CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
   # when we want to commit data such as an insert
-  def query_commit(self,sql):
+  # be sure to check for RETURNING in all uppercases
+  def query_commit(self,sql,*kwargs):
+
+    self.print_sql('commit with returning',sql)
+
+    pattern = r"\bRETURNING\b"
+    is_returning_id = re.search(pattern, sql)
+    if is_returning_id:
+      print("Found a match")
+    else:
+      print("No match found")
+
     try:
       conn =  self.pool.connection()
       cur = conn.cursor()
-      cur.execute(sql)
+      cur.execute(sql, kwargs)
+      if is_returning_id:
+        returning_id = cur.fetchone()[0]
       conn.commit()
+      if is_returning_id:
+        return returning_id
     except Exception as error:
       self.print_sql_err(error)
       #conn.rollback
-    finally:
-      if conn is not None:
-          cur.close()
-          conn.close()
-          print('Database connection closed.')
+
+  def print_sql(self,title,sql):
+    cyan = '\033[96m'
+    no_color = '\033[0m'
+    print(f'{cyan} SQL STATEMENT-[{title}]------{no_color}')
+    print(sql)
 
   def query_wrap_object(self,template):
     sql = f"""
@@ -82,7 +114,7 @@ class Db:
     print ("psycopg traceback:", traceback, "-- type:", err_type)
 
     # print the pgcode and pgerror exceptions
-    print ("pgerror:", err.pgerror)
-    print ("pgcode:", err.pgcode, "\n")
+    #print ("pgerror:", err.pgerror)
+    #print ("pgcode:", err.pgcode, "\n")
 
 db = Db()
