@@ -7,6 +7,7 @@ class Db:
     self.init_pool()
 
   def template(self,*args):
+
     pathing = list((app.root_path,'db','sql',) + args)
     pathing[-1] = pathing[-1] + ".sql"
 
@@ -26,7 +27,7 @@ class Db:
     self.pool = ConnectionPool(connection_url)
   # when we want to commit data such as an insert
   # be sure to check for RETURNING in all uppercases
-  def query_commit(self,sql,*kwargs):
+  def query_commit(self,sql,params={}):
 
     self.print_sql('commit with returning',sql)
 
@@ -38,14 +39,16 @@ class Db:
       print("No match found")
 
     try:
-      conn =  self.pool.connection()
-      cur = conn.cursor()
-      cur.execute(sql, kwargs)
-      if is_returning_id:
-        returning_id = cur.fetchone()[0]
-      conn.commit()
-      if is_returning_id:
-        return returning_id
+      with self.pool.connection() as conn:
+        with conn.cursor() as cur:      
+      #conn =  self.pool.connection()
+      #cur = conn.cursor()
+          cur.execute(sql, params)
+          if is_returning_id:
+            returning_id = cur.fetchone()[0]
+          conn.commit()
+          if is_returning_id:
+            return returning_id
     except Exception as error:
       self.print_sql_err(error)
       #conn.rollback
@@ -56,6 +59,13 @@ class Db:
     print(f'{cyan} SQL STATEMENT-[{title}]------{no_color}')
     print(sql)
 
+  def print_params(self,params):
+    blue = '\033[94m'
+    no_color = '\033[0m'
+    print(f'{blue} SQL Params:{no_color}')
+    for key, value in params.items():
+      print(key, ":", value)
+  
   def query_wrap_object(self,template):
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
@@ -73,14 +83,13 @@ class Db:
     return sql
 
   #When we want to return a json object
-  def query_array_json(self, sql):
-    print("BEGIN : sql statement-[array]--------")
-    print(sql)
-    print("END : sql statement---------")
+  def query_array_json(self, sql, params={}):
+    self.print_sql('array',sql)
+
     wrapped_sql = self.query_wrap_array(sql)
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
-        cur.execute(wrapped_sql)
+        cur.execute(wrapped_sql, params)
         # this will return a tuple
         # the first field being the data
         json = cur.fetchone()
@@ -88,19 +97,20 @@ class Db:
 
 
   #When we want to return an array of json objects
-  def query_object_json(self,sql):
-    print("BEGIN : sql statement-[object]--------")
-    print(sql)
-    print("END : sql statement---------")
+  def query_object_json(self,sql,params={}):
+    self.print_sql('json',sql)
+    self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
-        cur.execute(wrapped_sql)
+        cur.execute(wrapped_sql,params)
         # this will return a tuple
         # the first field being the data
         json = cur.fetchone()
-        return json[0]
-
+        if json == None:
+          "{}"
+        else:
+          return json[0]
 
   def print_sql_err(self,err):
     # get details about the exception
