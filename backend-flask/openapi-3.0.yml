@@ -148,6 +148,21 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Message'
+  /api/activities/notifications:
+    get:
+      description: 'Return a feed of activity for all my followers'
+      tags:
+        - activities
+      parameters: []
+      responses:
+        '200':
+          description: Returns an array of activities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity'
 
 components:
   schemas:
@@ -159,10 +174,10 @@ components:
           example: 0056a369-4618-43a4-ad88-e7c371bf5582
         display_name:
           type: string
-          example: "Andrew Brown"
+          example: "Papa Moussa FALL"
         handle:
           type: string
-          example: "andrewbrown"
+          example: "papamfall"
         message:
           type: string
           example: "Who likes pineapple on their pizza?"
@@ -192,7 +207,7 @@ components:
           example: 0056a369-4618-43a4-ad88-e7c371bf5582
         handle:
           type: string
-          example: "andrewbrown"
+          example: "papamfall"
         message:
           type: string
           example: "Who likes pineapple on their pizza?"
@@ -217,10 +232,10 @@ components:
           example: 0056a369-4618-43a4-ad88-e7c371bf5582
         display_name:
           type: string
-          example: "Andrew Brown"
+          example: "Papa Moussa FALL"
         handle:
           type: string
-          example: "andrewbrown"
+          example: "papamfall"
         message:
           type: string
           example: "Who likes pineapple on their pizza?"
