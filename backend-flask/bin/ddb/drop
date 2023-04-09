@@ -1,15 +1,23 @@
 #! /usr/bin/bash
+set -e # stop if it fails at any point
 
-CYAN='\033[1;36m'
-NO_COLOR='\033[0m'
-LABEL="db-drop"
-printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+# ./bin/ddb/drop cruddur-messages prod
+
+if [ -z "$1" ]; then
+  echo "No TABLE_NAME supplied eg ./bin/ddb/drop cruddur-messages prod"
+  exit 1
+fi
+
+TABLE_NAME=$1
 
 if [ "$1" = "prod" ]; then
-    echo "Running in production mode"
-    NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$PROD_CONNECTION_URL")
-    psql $NO_DB_CONNECTION_URL -c "drop database cruddur;"
+  ENDPOINT_URL=""
 else
-    NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
-    psql $NO_DB_CONNECTION_URL -c "drop database cruddur;"
+  ENDPOINT_URL="--endpoint-url=http://localhost:8000"
 fi
+
+
+echo "deleting table: $TABLE_NAME ..."
+
+aws dynamodb delete-table $ENDPOINT_URL \
+--table-name $TABLE_NAME 
