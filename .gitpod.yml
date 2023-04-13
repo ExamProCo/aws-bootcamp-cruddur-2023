@@ -23,7 +23,7 @@ tasks:
       npm i
   - name: backend-flask
     command: |
-      cd backend-react
+      cd backend-flask
       pip install -r requirements.txt
 vscode:
   extensions:
