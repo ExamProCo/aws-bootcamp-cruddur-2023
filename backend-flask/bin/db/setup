@@ -14,11 +14,13 @@ if [ "$1" = "prod" ]; then
     source "$bin_path/db/create" prod
     source "$bin_path/db/schema-load" prod
     source "$bin_path/db/seed" prod
+    python "$bin_path/db/update_cognito_user_ids"
 else
     source "$bin_path/db/drop"
     source "$bin_path/db/create"
     source "$bin_path/db/schema-load"
     source "$bin_path/db/seed"
+    python "$bin_path/db/update_cognito_user_ids"
 fi
 
 

@@ -28,7 +28,7 @@ query_params = {
   'KeyConditionExpression': 'pk = :pk AND begins_with(sk,:year)',
   #'KeyConditionExpression': 'pk = :pk AND sk BETWEEN :start_date AND :end_date',
   'ExpressionAttributeValues': {
-    ':year': {'S': '2023'},
+    ':year': {'S': str(current_year) },
     #":start_date": { "S": "2023-03-01T00:00:00.000000+00:00" },
     #":end_date": { "S": "2023-03-19T23:59:59.999999+00:00" },
     ':pk': {'S': f"MSG#{message_group_uuid}"}

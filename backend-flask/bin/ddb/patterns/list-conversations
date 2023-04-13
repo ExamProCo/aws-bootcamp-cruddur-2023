@@ -42,7 +42,7 @@ current_year = datetime.datetime.now().year
 # define the query parameters
 query_params = {
   'TableName': table_name,
-      'KeyConditionExpression': 'pk = :pk AND begins_with(sk,:year)',
+  'KeyConditionExpression': 'pk = :pk AND begins_with(sk,:year)',
   'ScanIndexForward': False,
   'ExpressionAttributeValues': {
     ':year': {'S': str(current_year) },
