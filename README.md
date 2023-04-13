@@ -30,4 +30,4 @@ The `/journal` directory contains
 - [ ] [Week 10 - CloudFormation Part 1](journal/week10.md)
 - [ ] [Week 11 - CloudFormation Part 2](journal/week11.md)
 - [ ] [Week 12 - Modern APIs](journal/week12.md)
-- [ ] [Week 13](journal/week13.md)
+- [ ] [Week 13 - (Secret Bonus Class)](journal/week13.md)
