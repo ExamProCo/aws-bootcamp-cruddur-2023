@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM 730331264766.dkr.ecr.us-east-1.amazonaws.com/cruddur-python:3.10-slim-buster
 ## Step 1:
 # inside container
 # Create a working directory
@@ -20,7 +20,8 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # set env variable inside container
-ENV FLASK_ENV=development
+#ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 
 ## Step 4:
 # Expose port 80

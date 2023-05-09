@@ -25,6 +25,11 @@ tasks:
     command: |
       cd backend-flask
       pip install -r requirements.txt
+  - name: fargate
+    command: |
+      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+      sudo dpkg -i session-manager-plugin.deb
+      cd backend-flask
 vscode:
   extensions:
     - 42Crunch.vscode-openapi
