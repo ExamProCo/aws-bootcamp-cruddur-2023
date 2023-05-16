@@ -2,7 +2,6 @@ import './RecoverPage.css';
 import React from "react";
 import {ReactComponent as Logo} from '../components/svg/logo.svg';
 import { Link } from "react-router-dom";
-
 import { Auth } from 'aws-amplify';
 
 export default function RecoverPage() {
@@ -22,7 +21,6 @@ export default function RecoverPage() {
     .catch((err) => setErrors(err.message) );
     return false
   }
-  
   const onsubmit_confirm_code = async (event) => {
     event.preventDefault();
     setErrors('')
