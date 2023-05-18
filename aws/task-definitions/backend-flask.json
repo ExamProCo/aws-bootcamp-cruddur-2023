@@ -10,6 +10,19 @@
     ],
     "containerDefinitions": [
       {
+        "name": "xray",
+        "image": "public.ecr.aws/xray/aws-xray-daemon" ,
+        "essential": true,
+        "user": "1337",
+        "portMappings": [
+          {
+            "name": "xray",
+            "containerPort": 2000,
+            "protocol": "udp"
+          }
+        ]
+      },
+      {
         "name": "backend-flask",
         "image": "730331264766.dkr.ecr.us-east-1.amazonaws.com/backend-flask",
         "essential": true,

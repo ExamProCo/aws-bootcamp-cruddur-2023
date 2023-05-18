@@ -1,9 +1,8 @@
 #! /usr/bin/bash
 
 CLUSTER_NAME="cruddur"
-SERVICE_NAME="backend-flask"
-TASK_DEFINTION_FAMILY="backend-flask"
-
+SERVICE_NAME="frontend-react-js"
+TASK_DEFINTION_FAMILY="frontend-react-js"
 
 LATEST_TASK_DEFINITION_ARN=$(aws ecs describe-task-definition \
 --task-definition $TASK_DEFINTION_FAMILY \
@@ -18,9 +17,3 @@ aws ecs update-service \
 --service $SERVICE_NAME \
 --task-definition $LATEST_TASK_DEFINITION_ARN \
 --force-new-deployment
-
-#aws ecs describe-services \
-#--cluster $CLUSTER_NAME \
-#--service $SERVICE_NAME \
-#--query 'services[0].deployments' \
-#--output table
