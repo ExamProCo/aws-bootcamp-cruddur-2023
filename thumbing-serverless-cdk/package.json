@@ -1,0 +1,29 @@
+{
+  "name": "thumbing-serverless-cdk",
+  "version": "0.1.0",
+  "bin": {
+    "thumbing-serverless-cdk": "bin/thumbing-serverless-cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/node": "20.1.0",
+    "aws-cdk": "2.79.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~5.0.4"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.79.1",
+    "constructs": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "sharp": "^0.32.1",
+    "source-map-support": "^0.5.21"
+  }
+}

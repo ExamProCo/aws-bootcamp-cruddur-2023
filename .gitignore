@@ -1,2 +1,4 @@
-frontend-react-js.env
-backend-flask.env
+frontend-react-js/build/*
+node_modules
+*.env
+docker/**/*
