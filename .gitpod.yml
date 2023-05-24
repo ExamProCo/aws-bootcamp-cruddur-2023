@@ -38,6 +38,10 @@ tasks:
       npm install aws-cdk -g
       cd thumbing-serverless-cdk
       npm i
+  - name: docker
+    before: |
+      source  "$THEIA_WORKSPACE_ROOT/bin/ecr/login"
+
 vscode:
   extensions:
     - 42Crunch.vscode-openapi
