@@ -27,6 +27,7 @@ COPY . .
 # Expose port 80
 EXPOSE ${PORT}
 
+ENV PYTHONUNBUFFERED=1
 ## Step 5:
 # Run app at container launch
 # python3 -m flask run --host=0.0.0.0 --port 4567
