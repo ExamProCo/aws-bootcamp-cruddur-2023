@@ -9,7 +9,7 @@ ABS_PATH=$(readlink -f "$0")
 DB_PATH=$(dirname $ABS_PATH)
 BIN_PATH=$(dirname $DB_PATH)
 PROJECT_PATH=$(dirname $BIN_PATH)
-BACKEND_FLASK_PATH="$PROJECT_PATH/backend-flask"
+BACKEND_FLASK_PATH="$PROJECT_PATH/aws-bootcamp-cruddur-2023/backend-flask"
 schema_path="$BACKEND_FLASK_PATH/db/schema.sql"
 echo $schema_path
 
