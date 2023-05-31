@@ -5,6 +5,14 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 DROP TABLE IF EXISTS public.users cascade;
 DROP TABLE IF EXISTS public.activities;
 
+CREATE TABLE IF NOT EXISTS public.schema_information (
+  id INTEGER UNIQUE ,
+  last_successful_run text
+);
+
+INSERT INTO public.schema_information (id, last_successful_run) VALUES(1, '0') on conflict (id) do nothing;
+   
+
 CREATE TABLE public.users (
   uuid UUID default uuid_generate_v4() primary key,
   display_name text,
