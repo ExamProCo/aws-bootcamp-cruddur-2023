@@ -1,3 +1,8 @@
+
+.profile_popup .upload {
+  color: white;
+  background: green;
+}
 form.profile_form input[type='text'],
 form.profile_form textarea {
   font-family: Arial, Helvetica, sans-serif;
