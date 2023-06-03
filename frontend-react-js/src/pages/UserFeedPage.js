@@ -7,15 +7,10 @@ import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ProfileHeading from '../components/ProfileHeading';
-import ProfileForm from 'components/ProfileForm';
-
-import EditProfileButton from '../components/EditProfileButton';
+import ProfileForm from '../components/ProfileForm';
 
 
 import {checkAuth, getAccessToken} from '../lib/CheckAuth';
-
-// [TODO] Authenication
-//import Cookies from 'js-cookie'
 
 export default function UserFeedPage() {
   const [activities, setActivities] = React.useState([]);
@@ -26,7 +21,6 @@ export default function UserFeedPage() {
   const dataFetchedRef = React.useRef(false);
 
   const params = useParams();
-  //const title = `@${params.handle}`;
 
   const loadData = async () => {
     try {
@@ -41,6 +35,7 @@ export default function UserFeedPage() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
+        console.log('setprofile',resJson.profile)
         setProfile(resJson.profile)
         setActivities(resJson.activities)
       } else {
@@ -50,8 +45,6 @@ export default function UserFeedPage() {
       console.log(err);
     }
   };
-
-
 
   React.useEffect(()=>{
     //prevents double call
@@ -67,13 +60,11 @@ export default function UserFeedPage() {
       <DesktopNavigation user={user} active={'profile'} setPopped={setPopped} />
       <div className='content'>
         <ActivityForm popped={popped} setActivities={setActivities} />
-
         <ProfileForm 
           profile={profile}
           popped={poppedProfile} 
           setPopped={setPoppedProfile} 
         />
-
         <div className='activity_feed'>
           <ProfileHeading setPopped={setPoppedProfile} profile={profile} />
           <ActivityFeed activities={activities} />
