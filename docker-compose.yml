@@ -1,0 +1,71 @@
+version: "3.8"
+services:
+  backend-flask:
+    env_file:
+      - backend-flask.env
+    build: ./backend-flask
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./backend-flask:/backend-flask
+    networks:
+      - cruddur-net
+  frontend-react-js:
+    env_file:
+      - frontend-react-js.env
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    networks:
+      - cruddur-net
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+  dynamodb-local:
+    # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
+    # We needed to add user:root to get this working.
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    networks:
+      - cruddur-net
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    networks:
+      - cruddur-net
+    volumes: 
+      - db:/var/lib/postgresql/data
+  xray-daemon:
+    hostname: xray-daemon
+    image: "amazon/aws-xray-daemon"
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "us-east-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
+    ports:
+      - 2000:2000/udp
+    networks:
+      - cruddur-net
+# the name flag is a hack to change the default prepend folder
+# name when outputting the image names
+networks: 
+  cruddur-net:
+    driver: bridge
+    name: cruddur-net
+
+volumes:
+  db:
+    driver: local

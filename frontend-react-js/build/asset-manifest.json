@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.553110f2.css",
+    "main.js": "/static/js/main.09063207.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/logo.svg": "/static/media/logo.5753985f6358b14bd71dac0a2953098c.svg",
+    "static/media/heart.svg": "/static/media/heart.c31d61db7c2d096bd3219a00053eca01.svg",
+    "static/media/home.svg": "/static/media/home.4e94b7659059a75c271100122f0b2f23.svg",
+    "static/media/messages.svg": "/static/media/messages.9c2a92621ab30f0780dfbfcc7af26768.svg",
+    "static/media/profile.svg": "/static/media/profile.a195fff06191f3e91d26f8f44f495b0a.svg",
+    "static/media/more.svg": "/static/media/more.e13deeada4344cadc8f349f1575607fa.svg",
+    "index.html": "/index.html",
+    "static/media/bomb.svg": "/static/media/bomb.585e455838778938e175c4311b6a9284.svg",
+    "static/media/elipses.svg": "/static/media/elipses.e1e2c11435294de336f167d28e3387f2.svg",
+    "static/media/reply.svg": "/static/media/reply.e855b43c7d756ec100f0520b73df4964.svg",
+    "static/media/repost.svg": "/static/media/repost.3d8455b75243ae9c8440ddecb016ce72.svg",
+    "static/media/notifications.svg": "/static/media/notifications.30f93bb0a78cc8bb07e1a283bb8a3495.svg",
+    "static/media/share.svg": "/static/media/share.858c53d43c95f51422eb938be3942086.svg",
+    "main.553110f2.css.map": "/static/css/main.553110f2.css.map",
+    "main.09063207.js.map": "/static/js/main.09063207.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.553110f2.css",
+    "static/js/main.09063207.js"
+  ]
+}

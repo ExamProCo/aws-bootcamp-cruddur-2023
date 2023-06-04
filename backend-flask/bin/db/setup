@@ -1,0 +1,26 @@
+#! /usr/bin/bash
+-e # stop if it fails at any point
+
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="db/setup"
+printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
+
+bin_path="$(realpath .)/bin"
+
+if [ "$1" = "prod" ]; then
+    echo "Running in production mode"
+    source "$bin_path/db/drop" prod
+    source "$bin_path/db/create" prod
+    source "$bin_path/db/schema-load" prod
+    source "$bin_path/db/seed" prod
+    python "$bin_path/db/update_cognito_user_ids"
+else
+    source "$bin_path/db/drop"
+    source "$bin_path/db/create"
+    source "$bin_path/db/schema-load"
+    source "$bin_path/db/seed"
+    python "$bin_path/db/update_cognito_user_ids"
+fi
+
+

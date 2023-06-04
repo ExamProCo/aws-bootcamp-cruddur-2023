@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+
+docker run --rm \
+  --network cruddur-net \
+  --publish 4567:4567 \
+  -it busybox

@@ -13,7 +13,7 @@ class SearchActivities:
     else:
       results = [{
         'uuid': '248959df-3079-4947-b847-9e0892d1bab4',
-        'handle':  'Andrew Brown',
+        'handle':  'Papa Moussa FALL',
         'message': 'Cloud is fun!',
         'created_at': now.isoformat()
       }]

@@ -1,0 +1,4 @@
+frontend-react-js/build/*
+node_modules
+*.env
+docker/**/*
