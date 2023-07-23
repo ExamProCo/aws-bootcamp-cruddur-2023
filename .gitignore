@@ -1,1 +1,2 @@
-/aws/dist
+/aws/dist/*
+/docker/**/*
