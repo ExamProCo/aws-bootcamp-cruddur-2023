@@ -24,7 +24,6 @@ export default function HomeFeedPage() {
     try {
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
       const res = await fetch(backend_url, {
-        // return JWT from local storage
         headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`
         },
