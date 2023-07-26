@@ -18,4 +18,4 @@ class HomeActivities:
     results = db.query_array_json(sql)
 
     #   span.set_attribute("app.result_length", len(results))
-      return results
+    return results
