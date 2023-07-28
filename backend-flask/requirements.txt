@@ -16,7 +16,8 @@ rollbar
 
 Flask-AWSCognito
 
+boto3
+
 psycopg[binary]
 psycopg[pool]
 
-boto3

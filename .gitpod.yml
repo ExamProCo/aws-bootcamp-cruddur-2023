@@ -6,7 +6,7 @@ tasks:
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
-      sudo ./aws/install
+      A | sudo ./aws/install
       rm awscliv2.zip
       cd $THEIA_WORKSPACE_ROOT
   - name: postgres
@@ -37,4 +37,7 @@ ports:
     visibility: public
   - name: xray-daemon
     port: 2000
+    visibility: public
+  - name: dynamodb
+    port: 8000
     visibility: public
