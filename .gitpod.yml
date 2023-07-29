@@ -6,7 +6,7 @@ tasks:
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
-      sudo ./aws/install -y
+      yes | sudo ./aws/install
       rm awscliv2.zip
       cd $THEIA_WORKSPACE_ROOT
   - name: postgres
@@ -17,7 +17,11 @@ tasks:
       sudo apt install -y postgresql-client-13 libpq-dev
     command: |
       export GITPOD_IP=$(curl ifconfig.me)
-      source "$THEIA_WORKSPACE_ROOT/backend-flask/bin/rds-update-sg-rule"
+      source "$THEIA_WORKSPACE_ROOT/backend-flask/bin/rds/update-sg-rule"
+  - name: flask
+    command: |
+      cd backend-flask
+      pip install -r requirements.txt
   - name: react-js
     command: |
       cd frontend-react-js

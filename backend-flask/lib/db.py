@@ -43,7 +43,7 @@ class Db:
     print(sql)
 
   def query_commit(self, sql, params={}):
-    self.print_sql('commit with returning',sql)
+    self.print_sql('commit with returning', sql, params)
 
     pattern = r"\bRETURNING\b"
     is_returning_id = re.search(pattern, sql)
