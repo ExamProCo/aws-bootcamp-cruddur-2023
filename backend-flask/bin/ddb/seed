@@ -10,7 +10,7 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 parent_path = os.path.abspath(os.path.join(current_path, '..', '..'))
 sys.path.append(parent_path)
 
-from lib.db import Db
+from lib.db import db
 
 attrs = {
   'endpoint_url': 'http://localhost:8000'
@@ -35,11 +35,11 @@ def get_user_uuids():
         )
   """
   users = db.query_array_json(sql,{
-    'my_handle':  'andrewbrown',
-    'other_handle': 'bayko'
+    'my_handle':  'sb',
+    'other_handle': 'rust'
   })
-  my_user    = next((item for item in users if item["handle"] == 'andrewbrown'), None)
-  other_user = next((item for item in users if item["handle"] == 'bayko'), None)
+  my_user    = next((item for item in users if item["handle"] == 'sb'), None)
+  other_user = next((item for item in users if item["handle"] == 'rust'), None)
   results = {
     'my_user': my_user,
     'other_user': other_user
