@@ -12,6 +12,7 @@ services:
       - 2000:2000/udp
   backend-flask:
     environment:
+      AWS_ENDPOINT_URL: "http://dynamodb-local:8000"
       CONNECTION_URL: "${PROD_CONNECTION_URL}"
       FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
       BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
