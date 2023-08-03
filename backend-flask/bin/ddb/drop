@@ -17,5 +17,5 @@ fi
 
 echo "deleting table: $TABLE_NAME"
 
-aws dynamodb delete-table ENDPOINT_URL \
+aws dynamodb delete-table $ENDPOINT_URL \
     --table-name $TABLE_NAME

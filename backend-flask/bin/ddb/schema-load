@@ -20,12 +20,16 @@ response = ddb.create_table(
   TableName=table_name,
   AttributeDefinitions=[
     {
-      'AttributeName': 'pk',   #primary partition key
-      'AttributeType': 'S'     #string
+      'AttributeName': 'message_group_uuid',
+      'AttributeType': 'S'
     },
     {
-      'AttributeName': 'sk',   #secondary partition key
-      'AttributeType': 'S'     #string
+      'AttributeName': 'pk',
+      'AttributeType': 'S'
+    },
+    {
+      'AttributeName': 'sk',
+      'AttributeType': 'S'
     },
   ],
   KeySchema=[
@@ -38,8 +42,23 @@ response = ddb.create_table(
       'KeyType': 'RANGE'
     },
   ],
-  #GlobalSecondaryIndexes=[
-  #],
+  GlobalSecondaryIndexes= [{
+    'IndexName':'message-group-sk-index',
+    'KeySchema':[{
+      'AttributeName': 'message_group_uuid',
+      'KeyType': 'HASH'
+    },{
+      'AttributeName': 'sk',
+      'KeyType': 'RANGE'
+    }],
+    'Projection': {
+      'ProjectionType': 'ALL'
+    },
+    'ProvisionedThroughput': {
+      'ReadCapacityUnits': 5,
+      'WriteCapacityUnits': 5
+    },
+  }],
   BillingMode='PROVISIONED',
   ProvisionedThroughput={
       'ReadCapacityUnits': 5,

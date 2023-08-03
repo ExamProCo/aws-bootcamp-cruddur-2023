@@ -1,1 +1,3 @@
 /docker/**/*
+*.env
+frontend-react-js/build/*
