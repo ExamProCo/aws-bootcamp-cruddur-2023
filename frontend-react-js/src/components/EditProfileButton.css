@@ -1,0 +1,13 @@
+.profile-edit-button {
+  border: solid 1px rgba(255,255,255,0.5);
+  padding: 12px 20px;
+  font-size: 18px;
+  background: none;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+}
+
+.profile-edit-button:hover {
+  background: rgba(255,255,255,0.3)
+}

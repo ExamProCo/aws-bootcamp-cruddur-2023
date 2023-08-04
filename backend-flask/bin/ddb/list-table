@@ -1,6 +1,5 @@
-#! /usr/bin/bash
-
-set -e
+#!/usr/bin/bash
+set -e # stop if it fails at any point
 
 if [ "$1" = "prod" ]; then
   ENDPOINT_URL=""
@@ -9,6 +8,6 @@ else
 fi
 
 aws dynamodb list-tables $ENDPOINT_URL \
-  --query TableNames \
-  --output table
+--query TableNames \
+--output table
   
