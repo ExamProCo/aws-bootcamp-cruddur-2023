@@ -1,0 +1,43 @@
+aws_ecs_cluster_configuration {
+  rules = [
+    {
+      rule = "task_definition_encryption"
+      description = "Ensure task definitions are encrypted"
+      level = "error"
+      action {
+        type = "disallow"
+        message = "Task definitions in the Amazon ECS cluster must be encrypted"
+      }
+      match {
+        type = "ecs_task_definition"
+        expression = "encrypt == false"
+      }
+    },
+    {
+      rule = "network_mode"
+      description = "Ensure Fargate tasks use awsvpc network mode"
+      level = "error"
+      action {
+        type = "disallow"
+        message = "Fargate tasks in the Amazon ECS cluster must use awsvpc network mode"
+      }
+      match {
+        type = "ecs_task_definition"
+        expression = "network_mode != 'awsvpc'"
+      }
+    },
+    {
+      rule = "execution_role"
+      description = "Ensure Fargate tasks have an execution role"
+      level = "error"
+      action {
+        type = "disallow"
+        message = "Fargate tasks in the Amazon ECS cluster must have an execution role"
+      }
+      match {
+        type = "ecs_task_definition"
+        expression = "execution_role == null"
+      }
+    },
+  ]
+}

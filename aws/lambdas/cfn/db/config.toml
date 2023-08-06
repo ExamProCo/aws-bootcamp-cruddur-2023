@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts'
+region = 'eu-west-1'
+stack_name = 'CrdDb'
+
+[parameters]
+NetworkingStack = 'CrdNet'
+ClusterStack = 'CrdCluster'
+MasterUsername = 'cruddurroot'

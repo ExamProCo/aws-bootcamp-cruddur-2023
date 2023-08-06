@@ -1,0 +1,5 @@
+let aws_ecs_cluster_resources = Resources.*[ Type == 'AWS::ECS::Cluster' ]
+rule aws_ecs_cluster when %aws_ecs_cluster_resources !empty {
+  %aws_ecs_cluster_resources.Properties.CapacityProviders == ["FARGATE"]
+  %aws_ecs_cluster_resources.Properties.ClusterName == "MyCluster"
+}
