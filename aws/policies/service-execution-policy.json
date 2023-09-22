@@ -1,11 +1,27 @@
 {
-  "Version":"2012-10-17",
-  "Statement":[{
-    "Effect": "Allow",
-    "Action": [
-      "ssm:GetParameters",
-      "ssm:GetParameter"
-    ],
-    "Resource": "arn:aws:ssm:eu-west-1:404100009949:parameter/cruddur/backend-flask/*"
-  }]
+    "Version":"2012-10-17",
+    "Statement":[
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameters",
+                "ssm:GetParameter"
+            ],
+            "Resource": "arn:aws:ssm:eu-west-1:404100009949:parameter/cruddur/backend-flask/*"
+        }
+    ]
 }

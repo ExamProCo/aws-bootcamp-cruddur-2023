@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import request
+from flask import request, g
 from flask_cors import CORS, cross_origin
 import os
 from time import strftime
@@ -85,13 +85,7 @@ RequestsInstrumentor().instrument()
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
 origins = [frontend, backend]
-# cors = CORS(
-#   app, 
-#   resources={r"/api/*": {"origins": origins}},
-#   expose_headers="location,link",
-#   allow_headers="content-type,if-modified-since",
-#   methods="OPTIONS,GET,HEAD,POST"
-# )
+
 cors = CORS(
   app, 
   resources={r"/api/*": {"origins": origins}},
@@ -228,6 +222,7 @@ def data_home():
     app.logger.debug(claims)
     app.logger.debug(claims['username'])
     data = HomeActivities.run(cognito_user_id=claims['username'])
+
   except TokenVerifyError as e:
     # unauthenicatied request
     app.logger.debug(e)
@@ -262,15 +257,26 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = 'sb'
-  message = request.json['message']
-  ttl = request.json['ttl']
-  model = CreateActivity.run(message, user_handle, ttl)
-  if model['errors'] is not None:
-    return model['errors'], 422
-  else:
-    return model['data'], 200
-  return
+  access_token = extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.verify(access_token)
+    # authenicatied request
+    app.logger.debug("authenicated")
+    app.logger.debug(claims)
+    app.logger.debug(claims['username'])
+    cognito_user_id=claims['username']
+    message = request.json['message']
+    ttl = request.json['ttl']
+
+    model = CreateActivity.run(message, cognito_user_id, ttl)
+    if model['errors'] is not None:
+      return model['errors'], 422
+    else:
+      return model['data'], 200
+  except TokenVerifyError as e:
+    # unauthenicatied request
+    app.logger.debug(e)
+    return {}, 401
 
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
 @xray_recorder.capture('activities_show')
@@ -281,9 +287,9 @@ def data_show_activity(activity_uuid):
 @app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities_reply(activity_uuid):
-  user_handle  = 'sb'
+  # cognito_user_id = request.json["cognito_user_id"]
   message = request.json['message']
-  model = CreateReply.run(message, user_handle, activity_uuid)
+  model = CreateReply.run(message, cognito_user_id, activity_uuid)
   if model['errors'] is not None:
     return model['errors'], 422
   else:

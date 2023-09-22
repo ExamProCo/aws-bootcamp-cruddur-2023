@@ -42,23 +42,24 @@ class Db:
     print(f'{cyan} SQL STATEMENT-[{title}]------{no_color}')
     print(sql, params)
 
-  def query_commit(self, sql, params={}):
-    self.print_sql('commit with returning', sql, params)
+  def query_commit(self, sql, params={}, verbose=True):
+      if verbose:
+          self.print_sql('commit with returning', sql, params)
 
-    pattern = r"\bRETURNING\b"
-    is_returning_id = re.search(pattern, sql)
+      pattern = r"\bRETURNING\b"
+      is_returning_id = re.search(pattern, sql)
 
-    try:
-      with self.pool.connection() as conn:
-        cur =  conn.cursor()
-        cur.execute(sql, params)
-        if is_returning_id:
-          returning_id = cur.fetchone()[0]
-        conn.commit() 
-        if is_returning_id:
-          return returning_id
-    except Exception as err:
-      self.print_sql_err(err)
+      try:
+          with self.pool.connection() as conn:
+              cur = conn.cursor()
+              cur.execute(sql, params)
+              if is_returning_id:
+                  returning_id = cur.fetchone()[0]
+              conn.commit()
+              if is_returning_id:
+                  return returning_id
+      except Exception as err:
+          self.print_sql_err(err)
 
   # when we want to return a json object
   def query_array_json(self,sql,params={}):

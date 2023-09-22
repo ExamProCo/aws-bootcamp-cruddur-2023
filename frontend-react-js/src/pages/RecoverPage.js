@@ -29,7 +29,7 @@ export default function RecoverPage() {
       .then((data) => setFormState('success'))
       .catch((err) => setErrors(err.message) );
     } else {
-      setCognitoErrors('Passwords do not match')
+      setErrors('Passwords do not match')
     }
     return false
   }

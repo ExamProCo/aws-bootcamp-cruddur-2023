@@ -106,7 +106,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
       actions: [
         's3:GetObject',
         's3:PutObject',
-        's3:GetBucketNotificationConfiguration',
+        // 's3:GetBucketNotificationConfiguration',
       ],
       resources: [
         `${bucketArn}/*`,

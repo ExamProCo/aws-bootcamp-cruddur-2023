@@ -1,20 +1,30 @@
-{
-  "name": "lambda-authorizer",
-  "lockfileVersion": 3,
-  "requires": true,
-  "packages": {
-    "": {
-      "dependencies": {
-        "aws-jwt-verify": "^4.0.0"
-      }
-    },
-    "node_modules/aws-jwt-verify": {
-      "version": "4.0.0",
-      "resolved": "https://registry.npmjs.org/aws-jwt-verify/-/aws-jwt-verify-4.0.0.tgz",
-      "integrity": "sha512-1kCv+Ub3jBaQ6HnIjfAXswjp7xD0LO4GxwbQZ/o9IoJpb8/ZBUhHu5GQ4k2O7jOVTS/KOz86uw4NV71V3s6V3g==",
-      "engines": {
-        "node": ">=14.0.0"
-      }
-    }
+"use strict";
+const { CognitoJwtVerifier } = require("aws-jwt-verify");
+//const { assertStringEquals } = require("aws-jwt-verify/assert");
+
+const jwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: process.env.USER_POOL_ID,
+  tokenUse: "access",
+  clientId: process.env.CLIENT_ID//,
+  //customJwtCheck: ({ payload }) => {
+  //  assertStringEquals("e-mail", payload["email"], process.env.USER_EMAIL);
+  //},
+});
+
+exports.handler = async (event) => {
+  console.log("request:", JSON.stringify(event, undefined, 2));
+
+  const jwt = event.headers.authorization;
+  try {
+    const payload = await jwtVerifier.verify(jwt);
+    console.log("Access allowed. JWT payload:", payload);
+  } catch (err) {
+    console.error("Access forbidden:", err);
+    return {
+      isAuthorized: false,
+    };
   }
-}
+  return {
+    isAuthorized: true,
+  };
+};

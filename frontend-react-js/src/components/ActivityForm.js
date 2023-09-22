@@ -2,11 +2,14 @@ import './ActivityForm.css';
 import React from "react";
 import process from 'process';
 import {ReactComponent as BombIcon} from './svg/bomb.svg';
+import {post} from 'lib/Requests';
+import FormErrors from 'components/FormErrors';
 
 export default function ActivityForm(props) {
   const [count, setCount] = React.useState(0);
   const [message, setMessage] = React.useState('');
   const [ttl, setTtl] = React.useState('7-days');
+  const [errors, setErrors] = React.useState([]);
 
   const classes = []
   classes.push('count')
@@ -16,35 +19,24 @@ export default function ActivityForm(props) {
 
   const onsubmit = async (event) => {
     event.preventDefault();
-    try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
-      console.log('onsubmit payload', message)
-      const res = await fetch(backend_url, {
-        method: "POST",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          message: message,
-          ttl: ttl
-        }),
-      });
-      let data = await res.json();
-      if (res.status === 200) {
-        // add activity to the feed
-        props.setActivities(current => [data,...current]);
-        // reset and close the form
-        setCount(0)
-        setMessage('')
-        setTtl('7-days')
-        props.setPopped(false)
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities`
+    const payload_data = {
+      message: message,
+      ttl: ttl
     }
+    post(url,payload_data,{
+        auth: true,
+        setErrors: setErrors,
+        success: function(data){
+          // add activity to the feed
+          props.setActivities(current => [data,...current]);
+          // reset and close the form
+          setCount(0)
+          setMessage('')
+          setTtl('7-days')
+          props.setPopped(false)
+        }
+    })
   }
 
   const textarea_onchange = (event) => {
@@ -86,6 +78,7 @@ export default function ActivityForm(props) {
               <option value='1-hour'>1 hour </option>
             </select>
           </div>
+          <FormErrors errors={errors} />
         </div>
       </form>
     );
