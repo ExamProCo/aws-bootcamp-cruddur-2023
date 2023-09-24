@@ -14,12 +14,9 @@ from lib.db import db
 
 def get_last_successful_run():
   sql = """
-  SELECT
-      coalesce(
-      (SELECT last_successful_run
-      FROM public.schema_information
-      LIMIT 1),
-      '0') as last_succesful_run
+    SELECT last_successful_run
+    FROM public.schema_information
+    LIMIT 1
   """
   return int(db.query_value(sql,{},verbose=False))
 
@@ -27,8 +24,9 @@ def set_last_successful_run(value):
   sql = """
   UPDATE schema_information
   SET last_successful_run = %(last_successful_run)s
+  WHERE id = 1
   """
-  db.query_commit(sql,{'last_successful_run': value})
+  db.query_commit(sql,{'last_successful_run': value}, verbose=False)
   return value
 
 last_successful_run = get_last_successful_run()

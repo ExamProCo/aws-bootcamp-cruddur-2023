@@ -1,6 +1,14 @@
 #! /usr/bin/bash
+
+ABS_PATH=$(readlink -f "$0")
+DB_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $DB_PATH)
+RDS_PATH="$BIN_PATH/rds"
+update_sg_path="$RDS_PATH/update-sg-rule"
+
 if [ "$1" = "prod" ]; then
   echo "Running in production mode"
+  bash $update_sg_path
   URL=$PROD_CONNECTION_URL
 else
   URL=$CONNECTION_URL
