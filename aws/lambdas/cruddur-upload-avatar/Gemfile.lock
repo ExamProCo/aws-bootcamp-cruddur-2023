@@ -19,6 +19,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     jmespath (1.6.2)
     jwt (2.7.1)
+    ox (2.14.17)
 
 PLATFORMS
   x86_64-linux
@@ -26,6 +27,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   jwt
+  ox
 
 BUNDLED WITH
    2.4.10
