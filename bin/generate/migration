@@ -6,17 +6,19 @@ import sys
 if len(sys.argv) == 2:
   name = sys.argv[1]
 else:
-  print("pass a filename: eg. ./bin/generate/migration hello")
+  print("pass a filename: eg. ./bin/generate/migration add_bio_column")
   exit(0)
 
 timestamp = str(time.time()).replace(".","")
 
 filename = f"{timestamp}_{name}.py"
 
+# convert undername name to title case e.g. add_bio_column -> AddBioColumn
 klass = name.replace('_', ' ').title().replace(' ','')
 
 file_content = f"""
-class {klass}Migration(Migration):
+from lib.db import db
+class {klass}Migration:
   def migrate_sql():
     data = \"\"\"
     \"\"\"
@@ -26,12 +28,14 @@ class {klass}Migration(Migration):
     \"\"\"
     return data
   def migrate():
-    this.query_commit(this.migrate_sql(),{{
+    db.query_commit({klass}Migration.migrate_sql(),{{
     }})
   def rollback():
-    this.query_commit(this.rollback_sql(),{{
+    db.query_commit({klass}Migration.rollback_sql(),{{
     }})
+migration = AddBioColumnMigration
 """
+# remove leading and trailing new lines
 file_content = file_content.lstrip('\n').rstrip('\n')
 
 current_path = os.path.dirname(os.path.abspath(__file__))
