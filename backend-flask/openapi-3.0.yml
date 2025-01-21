@@ -13,7 +13,7 @@ paths:
         - activities
       responses:
         '200':
-          description: Returns an array of activities"
+          description: Returns an array of activities
           content:
             application/json:
               schema:
@@ -35,7 +35,7 @@ paths:
             example: "#100DaysOfCloud"
       responses:
         '200':
-          description: Returns an array of activities"
+          description: Returns an array of activities
           content:
             application/json:
               schema:
@@ -44,7 +44,7 @@ paths:
                   $ref: '#/components/schemas/Activity'
   /api/activities:
     post:
-      description: Create a new activitiy eg. Creating a Crud
+      description: Create a new activity e.g., Creating a Crud
       tags:
         - activities
       requestBody:
@@ -62,13 +62,12 @@ paths:
                   type: string
       responses:
         '200':
-          description: Returns a recently created activity"
+          description: Returns a recently created activity
           content:
             application/json:
               schema:
                 type: object
-                items:
-                  $ref: '#/components/schemas/Activity'
+                $ref: '#/components/schemas/Activity'
   /api/activities/@{handle}:
     get:
       description: 'Return a feed of activity for a specific user'
@@ -83,7 +82,7 @@ paths:
             type: string
       responses:
         '200':
-          description: Returns an array of activities"
+          description: Returns an array of activities
           content:
             application/json:
               schema:
@@ -92,7 +91,7 @@ paths:
                   $ref: '#/components/schemas/Activity'
   /api/message_groups:
     get:
-      description: 'Return a list of two way private conversations for the user'
+      description: 'Return a list of two-way private conversations for the user'
       tags:
         - messages
       responses:
@@ -122,7 +121,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: array
                 items:
                   $ref: '#/components/schemas/Message'
   /api/messages:
